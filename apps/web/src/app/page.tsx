@@ -30,5 +30,7 @@ export default async function Page() {
 
   const { _id, _type, pageBuilder } = homePageData ?? {};
 
+  console.log("pageBuilder", pageBuilder);
+
   return <PageBuilder id={_id} pageBuilder={pageBuilder ?? []} type={_type} />;
 }

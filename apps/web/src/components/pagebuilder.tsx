@@ -9,8 +9,10 @@ import type { PageBuilderBlock, PageBuilderBlockTypes } from "@/types";
 import { CTABlock } from "./sections/cta";
 import { FaqAccordion } from "./sections/faq-accordion";
 import { FeatureCardsWithIcon } from "./sections/feature-cards-with-icon";
+import { FireplacesShowcaseSection } from "./sections/fireplaces-showcase";
 import { HeroBlock } from "./sections/hero";
 import { ImageLinkCards } from "./sections/image-link-cards";
+import { LatestChimneypiecesSection } from "./sections/latest-chimneypieces";
 import { RichTextBlock } from "./sections/rich-text-block";
 import { SubscribeNewsletter } from "./sections/subscribe-newsletter";
 
@@ -113,7 +115,7 @@ function useBlockRenderer(id: string, type: string) {
   );
 
   const renderBlock = useCallback(
-    (block: PageBuilderBlock, _index: number) => {
+    (block: PageBuilderBlock, index: number) => {
       const Component =
         BLOCK_COMPONENTS[block._type as keyof typeof BLOCK_COMPONENTS];
 
@@ -128,16 +130,23 @@ function useBlockRenderer(id: string, type: string) {
       }
 
       return (
-        <div
-          data-sanity={createBlockDataAttribute(block._key)}
-          key={`${block._type}-${block._key}`}
-        >
-          {/** biome-ignore lint/suspicious/noExplicitAny: <any is used to allow for dynamic component rendering> */}
-          <Component {...(block as any)} />
+        <div key={`${block._type}-${block._key}-group`}>
+          <div
+            data-sanity={createBlockDataAttribute(block._key)}
+          >
+            {/** biome-ignore lint/suspicious/noExplicitAny: <any is used to allow for dynamic component rendering> */}
+            <Component {...(block as any)} />
+          </div>
+          {type === "homePage" && index === 0 && block._type === "hero" ? (
+            <>
+              <FireplacesShowcaseSection />
+              <LatestChimneypiecesSection />
+            </>
+          ) : null}
         </div>
       );
     },
-    [createBlockDataAttribute]
+    [createBlockDataAttribute, type]
   );
 
   return { renderBlock };

@@ -16,6 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@workspace/ui/components/sheet";
+import { cn } from "@workspace/ui/lib/utils";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -25,7 +26,19 @@ import { MenuLink } from "./elements/menu-link";
 import { SanityButtons } from "./elements/sanity-buttons";
 import { Logo } from "./logo";
 
-export function MobileMenu({ navbarData, settingsData }: NavigationData) {
+type MobileMenuProps = NavigationData & {
+  triggerClassName?: string;
+  iconClassName?: string;
+  triggerChild?: React.ReactNode;
+};
+
+export function MobileMenu({
+  navbarData,
+  settingsData,
+  triggerClassName,
+  iconClassName,
+  triggerChild,
+}: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeMenu() {
@@ -38,8 +51,15 @@ export function MobileMenu({ navbarData, settingsData }: NavigationData) {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button size="icon" variant="ghost">
-          <Menu className="size-4" />
+        <Button
+          className={cn(
+            "text-muted-foreground hover:bg-transparent hover:text-foreground",
+            triggerClassName
+          )}
+          size="icon"
+          variant="ghost"
+        >
+          {triggerChild ?? <Menu className={cn("size-4", iconClassName)} />}
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
@@ -51,8 +71,12 @@ export function MobileMenu({ navbarData, settingsData }: NavigationData) {
       >
         <SheetHeader className="flex-row items-center px-6 justify-between pb-4 border-b">
           {logo ? (
-            <div className="[&_img]:w-auto [&_img]:h-6 [&_img]:rounded-none">
-              <Logo alt={siteTitle || ""} image={logo} />
+            <div className="[&_img]:h-6 [&_img]:w-auto [&_img]:rounded-none">
+              <Logo
+                alt={siteTitle || ""}
+                image={logo}
+                imageClassName="h-6 w-auto rounded-none"
+              />
             </div>
           ) : (
             <SheetTitle>{siteTitle || "Menu"}</SheetTitle>

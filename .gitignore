@@ -25,9 +25,13 @@ playwright-report/
 
 # Build Outputs
 .next/
+**/.next/
 out/
+**/out/
 build
+**/build/
 dist
+**/dist/
 
 
 # Debug

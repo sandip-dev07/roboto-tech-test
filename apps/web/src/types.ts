@@ -6,6 +6,7 @@ import type {
   QueryHomePageDataResult,
   QueryImageTypeResult,
   QueryNavbarDataResult,
+  QuerySettingsDataResult,
 } from "@workspace/sanity/types";
 
 export type PageBuilderBlock = Get<
@@ -36,10 +37,14 @@ export type Blog = Get<QueryBlogIndexPageBlogsResult, number>;
 
 export type Maybe<T> = T | null | undefined;
 
+export type NavigationSettingsData =
+  NonNullable<QueryGlobalSeoSettingsResult> &
+    Pick<NonNullable<QuerySettingsDataResult>, "contactEmail">;
+
 // Navigation types
 export type NavigationData = {
   navbarData: QueryNavbarDataResult;
-  settingsData: QueryGlobalSeoSettingsResult;
+  settingsData: NavigationSettingsData | null;
 };
 
 export type NavColumn = Get<QueryNavbarDataResult, "columns", number>;

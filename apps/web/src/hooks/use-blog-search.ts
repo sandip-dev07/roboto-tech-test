@@ -5,7 +5,7 @@ import type { Blog } from "@/types";
 import { useDebounce } from "./use-debounce";
 
 const SEARCH_DEBOUNCE_MS = 400;
-const CACHE_STALE_TIME_MS = 30_000;
+const CACHE_STALE_TIME_MS = 30_000; // 30 seconds
 
 async function searchBlog(query: string, signal: AbortSignal) {
   if (!query.trim()) {

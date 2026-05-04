@@ -7,9 +7,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Galaxie Copernicus";
+  src: url("/fonts/GalaxieCopernicus-Book.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Galaxie Copernicus";
+  src: url("/fonts/GalaxieCopernicus-Book.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #f3f0ed;
+  --foreground: #000000;
+  --text-primary: #000000;
+  --text-secondary: #737373;
+  --text-link: #9c9c9d;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -79,6 +98,14 @@
 }
 
 @theme inline {
+  --font-sans: "Galaxie Copernicus", serif;
+  --font-serif: "Galaxie Copernicus", serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --color-color-primary: var(--text-primary);
+  --color-color-secondary: var(--text-secondary);
+  --color-color-link: var(--text-link);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -132,5 +159,11 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
+}
+
+.max-w-container {
+  max-width: 1512px;
+  margin: 0 auto;
+  @apply px-[20px] md:px-[35px];
 }

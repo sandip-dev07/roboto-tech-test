@@ -1,19 +1,16 @@
 "use client";
 
 import { env } from "@workspace/env/client";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import useSWR from "swr";
 
-import type { ColumnLink, NavColumn, NavigationData } from "@/types";
-import { MenuLink } from "./elements/menu-link";
-import { SanityButtons } from "./elements/sanity-buttons";
+import type { NavigationData } from "@/types";
 import { Logo } from "./logo";
 import { MobileMenu } from "./mobile-menu";
-import { ModeToggle } from "./mode-toggle";
+import { NavbarScreenWidth } from "./navbar-screen-width";//test
 
-// Fetcher function
+const ICON_STROKE = "#9C9C9D";
+
 const fetcher = async (url: string): Promise<NavigationData> => {
   const response = await fetch(url);
   if (!response.ok) {
@@ -22,109 +19,128 @@ const fetcher = async (url: string): Promise<NavigationData> => {
   return response.json();
 };
 
-function DesktopColumnDropdown({
-  column,
-}: {
-  column: Extract<NavColumn, { type: "column" }>;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsOpen(false);
-  };
-
+function SearchIcon() {
   return (
-    <div className="group relative">
-      <button
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-        className="flex items-center gap-1 px-3 py-2 font-medium text-muted-foreground text-sm transition-colors hover:text-foreground"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        type="button"
-      >
-        {column.title}
-        <ChevronDown className="size-3 transition-transform group-hover:rotate-180" />
-      </button>
-      {isOpen ? (
-        <div
-          className="fade-in-0 zoom-in-95 absolute top-full left-0 z-50 min-w-[280px] animate-in rounded-lg border bg-popover p-2 shadow-lg"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          role="menu"
-        >
-          <div className="grid gap-1">
-            {column.links?.map((link: ColumnLink) => (
-              <MenuLink
-                description={link.description || ""}
-                href={link.href || ""}
-                icon={link.icon}
-                key={link._key}
-                name={link.name || ""}
-              />
-            ))}
-          </div>
-        </div>
-      ) : null}
-    </div>
+    <svg
+      aria-hidden="true"
+      className="block size-full"
+      fill="none"
+      viewBox="0 0 24.9203 26.2456"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="10.1404"
+        cy="10.1404"
+        fill="none"
+        r="9.39035"
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+      />
+      <line
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+        x1="16.0391"
+        x2="24.39"
+        y1="17.3644"
+        y2="25.7153"
+      />
+    </svg>
   );
 }
 
-function DesktopColumnLink({
-  column,
-}: {
-  column: Extract<NavColumn, { type: "link" }>;
-}) {
-  if (!column.href) return null;
-
+function MailIcon() {
   return (
-    <Link
-      className="px-3 py-2 font-medium text-muted-foreground text-sm transition-colors hover:text-foreground"
-      href={column.href}
+    <svg
+      aria-hidden="true"
+      className="block size-full"
+      fill="none"
+      viewBox="0 0 32.2105 22.6667"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      {column.name}
-    </Link>
+      <rect
+        fill="none"
+        height="21.1667"
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+        width="30.7105"
+        x="0.75"
+        y="0.75"
+      />
+      <path
+        d="M1.52734 2.16016L16.1071 13.6189L30.6868 2.16016"
+        fill="none"
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="block size-full"
+      fill="none"
+      viewBox="0 0 31.0176 22.9737"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+        x1="0"
+        x2="31.0175"
+        y1="0.75"
+        y2="0.75"
+      />
+      <line
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+        x1="0"
+        x2="31.0176"
+        y1="11.4868"
+        y2="11.4868"
+      />
+      <line
+        stroke={ICON_STROKE}
+        strokeWidth="1.5"
+        x1="0"
+        x2="31.0176"
+        y1="22.2237"
+        y2="22.2237"
+      />
+    </svg>
   );
 }
 
 function NavbarSkeleton() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo skeleton - matches Logo component dimensions: width={120} height={40} */}
-          {/* <div className="flex items-center">
-            <div className="h-10 w-[120px] rounded bg-muted/50 animate-pulse" />
-          </div> */}
-          <div className="flex h-10 w-40 items-center">
-            <div className="h-10 w-40 animate-pulse rounded bg-muted/50" />
-          </div>
-
-          {/* Desktop nav skeleton - matches nav gap-1 and px-3 py-2 buttons */}
-          {/* <nav className="hidden md:flex items-center gap-1">
-            {Array.from({ length: 2 }).map((_, i) => (
-              <div
-                key={`nav-${i}`}
-                className="h-9 px-3 py-2 rounded bg-muted/50 animate-pulse min-w-[60px]"
-              />
-            ))}
-          </nav> */}
-
-          {/* Desktop actions skeleton - matches gap-4, ModeToggle (icon button) + SanityButtons */}
-          {/* <div className="hidden md:flex items-center gap-4">
-            <div className="h-9 w-9 rounded bg-muted/50 animate-pulse" />
-            <div className="h-9 px-4 rounded-lg bg-muted/50 animate-pulse min-w-[80px]" />
-          </div> */}
-
-          {/* Mobile menu button skeleton - matches Button size="icon" */}
-          <div className="h-10 w-10 animate-pulse rounded bg-muted/50 md:hidden" />
-        </div>
+    <header className="fixed top-0 right-0 left-0 z-50 flex h-[80px] w-full items-center justify-between bg-[#f3f0ed] px-5 lg:h-[110px] lg:px-[41px]">
+      <div className="h-[35px] w-[88px] animate-pulse bg-stone-300/70 lg:h-[45px] lg:w-[108px]" />
+      <div className="flex items-center gap-[18px] lg:gap-[26px]">
+        <div className="h-[22px] w-[20px] animate-pulse bg-stone-300/70 lg:h-[26px] lg:w-[24px]" />
+        <div className="h-[20px] w-[28px] animate-pulse bg-stone-300/70 lg:h-[23px] lg:w-[32px]" />
+        <div className="h-[20px] w-[27px] animate-pulse bg-stone-300/70 lg:h-[23px] lg:w-[31px]" />
       </div>
     </header>
+  );
+}
+
+function HeaderLink({
+  href,
+  label,
+  className,
+  children,
+}: {
+  href: string;
+  label: string;
+  className: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link aria-label={label} className={className} href={href}>
+      {children}
+    </Link>
   );
 }
 
@@ -154,67 +170,60 @@ export function Navbar({
     settingsData: initialSettingsData,
   };
   const { navbarData, settingsData } = navigationData;
-  const { columns, buttons } = navbarData || {};
-  const { logo, siteTitle } = settingsData || {};
+  const { logo, siteTitle, contactEmail } = settingsData || {};
 
-  // Show skeleton only on initial mount when no fallback data is available
   if (isLoading && !data && !(initialNavbarData && initialSettingsData)) {
     return <NavbarSkeleton />;
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <div className="flex h-10 w-40 items-center">
-            {logo && (
-              <Logo
-                alt={siteTitle || ""}
-                height={40}
-                image={logo}
-                priority
-                width={120}
-              />
-            )}
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-1 md:flex">
-            {columns?.map((column) => {
-              if (column.type === "column") {
-                return (
-                  <DesktopColumnDropdown column={column} key={column._key} />
-                );
-              }
-              if (column.type === "link") {
-                return <DesktopColumnLink column={column} key={column._key} />;
-              }
-              return null;
-            })}
-          </nav>
-
-          {/* Desktop Actions */}
-          <div className="hidden items-center gap-4 md:flex">
-            <ModeToggle />
-            <SanityButtons
-              buttonClassName="rounded-lg"
-              buttons={buttons || []}
-              className="flex items-center gap-2"
-            />
-          </div>
-
-          {/* Mobile Actions */}
-          <div className="flex items-center gap-2 md:hidden">
-            <ModeToggle />
-            <MobileMenu navbarData={navbarData} settingsData={settingsData} />
-          </div>
-        </div>
+    <header className="fixed top-0 right-0 left-0 z-50 flex h-[80px] w-full items-center justify-between bg-background px-5 lg:h-[110px] lg:px-[41px]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <NavbarScreenWidth />
+      </div>
+      <div className="h-[35px] lg:h-[45px]">
+        {logo ? (
+          <Logo
+            alt={siteTitle || ""}
+            className="block h-full"
+            height={45}
+            image={logo}
+            imageClassName="h-full w-auto rounded-none object-contain dark:invert-0"
+            priority
+            width={108}
+          />
+        ) : null}
       </div>
 
-      {/* Error boundary for SWR */}
+      <div className="flex items-center gap-[18px] lg:gap-[26px]">
+        <HeaderLink
+          className="h-[22px] w-[20px] lg:h-[26px] lg:w-[24px]"
+          href="/blog"
+          label="Search"
+        >
+          <SearchIcon />
+        </HeaderLink>
+
+        {contactEmail ? (
+          <HeaderLink
+            className="h-[20px] w-[28px] lg:h-[23px] lg:w-[32px]"
+            href={`mailto:${contactEmail}`}
+            label="Email us"
+          >
+            <MailIcon />
+          </HeaderLink>
+        ) : null}
+
+        <MobileMenu
+          navbarData={navbarData}
+          settingsData={settingsData}
+          triggerChild={<MenuIcon />}
+          triggerClassName="h-[20px] w-[27px] p-0 text-transparent hover:bg-transparent lg:h-[23px] lg:w-[31px]"
+        />
+      </div>
+
       {error && env.NODE_ENV === "development" && (
-        <div className="border-destructive/20 border-b bg-destructive/10 px-4 py-2 text-destructive text-xs">
+        <div className="absolute right-0 bottom-0 left-0 border-destructive/20 border-b bg-destructive/10 px-4 py-2 text-destructive text-xs">
           Navigation data fetch error: {error.message}
         </div>
       )}
