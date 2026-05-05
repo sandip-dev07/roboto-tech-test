@@ -1,4 +1,5 @@
 import Hero from "./_components/hero";
+import AnimateIn from "./_components/animate-in";
 import ProductGrid from "./_components/product-grid";
 import type { ProductGridItem } from "./_components/product-grid";
 import ProductTextImage from "./_components/product-split";
@@ -31,7 +32,7 @@ const chimneyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[244px] w-[333px]",
+    imageSizeClass: "aspect-[333/244] w-full lg:h-[244px] lg:w-[333px]",
     imageSrc: CHIMNEY_IMAGE,
     imageAlt: "Chimneypiece one",
     href: "#",
@@ -39,7 +40,7 @@ const chimneyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[244px] w-[333px]",
+    imageSizeClass: "aspect-[333/244] w-full lg:h-[244px] lg:w-[333px]",
     imageSrc: CHIMNEY_IMAGE,
     imageAlt: "Chimneypiece two",
     href: "#",
@@ -47,7 +48,7 @@ const chimneyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[244px] w-[333px]",
+    imageSizeClass: "aspect-[333/244] w-full lg:h-[244px] lg:w-[333px]",
     imageSrc: CHIMNEY_IMAGE,
     imageAlt: "Chimneypiece three",
     href: "#",
@@ -55,7 +56,7 @@ const chimneyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[244px] w-[333px]",
+    imageSizeClass: "aspect-[333/244] w-full lg:h-[244px] lg:w-[333px]",
     imageSrc: CHIMNEY_IMAGE,
     imageAlt: "Chimneypiece four",
     href: "#",
@@ -66,7 +67,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[186px]",
+    imageSizeClass: "h-full aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting one",
     href: "#",
@@ -74,7 +75,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[186px]",
+    imageSizeClass: "aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting two",
     href: "#",
@@ -82,7 +83,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[186px]",
+    imageSizeClass: "aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting three",
     href: "#",
@@ -90,7 +91,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[186px]",
+    imageSizeClass: "aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting four",
     href: "#",
@@ -98,7 +99,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[186px]",
+    imageSizeClass: "aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting five",
     href: "#",
@@ -109,7 +110,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[189px]",
+    imageSizeClass: "aspect-[189/253] w-full lg:h-[253px] lg:w-[189px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/47fa10d664c2aa722914388aab23495e6f32ed19-486x654.png",
     imageAlt: "Furniture one",
@@ -118,7 +119,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[187px] w-[233px]",
+    imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/cf2ffcbc500e904ce39b471d521c5c30a8a25052-486x390.png",
     imageAlt: "Furniture two",
@@ -127,7 +128,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[187px] w-[233px]",
+    imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/5a5517e978a28089cdc9582bfa6c5c86031a8bef-488x388.png",
     imageAlt: "Furniture three",
@@ -136,7 +137,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[232px] w-[232px]",
+    imageSizeClass: "aspect-square w-full lg:h-[232px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/6d2c04c7d8bb5b448f9d7eeba000d229219fdff1-486x488.png",
     imageAlt: "Furniture four",
@@ -145,7 +146,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[152px] w-[232px]",
+    imageSizeClass: "aspect-[232/152] w-full lg:h-[152px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/ad1258cea9cc3420c24283484d8b409ca1e35518-486x320.png",
     imageAlt: "Furniture five",
@@ -157,7 +158,7 @@ const storyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[196px]",
+    imageSizeClass: "aspect-[196/253] w-full lg:h-[253px] lg:w-[196px]",
     imageSrc: STORY_IMAGE,
     imageAlt: "Story one",
     href: "#",
@@ -165,7 +166,7 @@ const storyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[196px]",
+    imageSizeClass: "aspect-[196/253] w-full lg:h-[253px] lg:w-[196px]",
     imageSrc: STORY_IMAGE,
     imageAlt: "Story two",
     href: "#",
@@ -173,7 +174,7 @@ const storyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[196px]",
+    imageSizeClass: "aspect-[196/253] w-full lg:h-[253px] lg:w-[196px]",
     imageSrc: STORY_IMAGE,
     imageAlt: "Story three",
     href: "#",
@@ -181,7 +182,7 @@ const storyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[196px]",
+    imageSizeClass: "aspect-[196/253] w-full lg:h-[253px] lg:w-[196px]",
     imageSrc: STORY_IMAGE,
     imageAlt: "Story four",
     href: "#",
@@ -189,7 +190,7 @@ const storyGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-[253px] w-[196px]",
+    imageSizeClass: "aspect-[196/253] w-full lg:h-[253px] lg:w-[196px]",
     imageSrc: STORY_IMAGE,
     imageAlt: "Story five",
     href: "#",
@@ -198,10 +199,10 @@ const storyGridItems = [
 
 export default function TestPage() {
   return (
-    <div className="relative top-[110px] mx-auto min-h-svh">
+    <div className="relative top-[80px] mx-auto min-h-svh md:top-[92px] lg:top-[110px]">
       <Hero className="max-w-container" />
 
-      <div className="pb-[86px]">
+      <AnimateIn className="pb-[86px]" delay={0.04}>
         {/* ProductSplit */}
         <ProductTextImage
           title="Fireplaces"
@@ -211,6 +212,7 @@ export default function TestPage() {
             { text: "Sell an Antique Chimneypiece" },
           ]}
           imageSrc={IMAGE_URL}
+          imageSizeClass="aspect-[906/1134] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Fireplace"
         />
         {/* Lighting */}
@@ -219,49 +221,60 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Explore our Lighting" }]}
           imageSrc={IMAGE_URL}
+          imageSizeClass="aspect-[906/1134] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Lighting"
         />
-      </div>
+      </AnimateIn>
 
       {/* ProductGrid */}
-      <ProductGrid
-        heading="Our latest chimneypieces"
-        items={chimneyGridItems}
-      />
-      <ProductGrid heading="Our latest lighting" items={lightingGridItems} />
+      <AnimateIn delay={0.05}>
+        <ProductGrid
+          heading="Our latest chimneypieces"
+          items={chimneyGridItems}
+        />
+      </AnimateIn>
+      <AnimateIn delay={0.05}>
+        <ProductGrid heading="Our latest lighting" items={lightingGridItems} />
+      </AnimateIn>
 
       {/* Furniture */}
-      <div className="py-[86px]">
+      <AnimateIn className="py-[86px]" delay={0.04}>
         <ProductTextImage
           title="Furniture"
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Explore our Furniture" }]}
           imageSrc={FURNITURE_IMAGE}
+          imageSizeClass="aspect-[904/1130] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Furniture"
         />
-      </div>
+      </AnimateIn>
 
-      <ProductGrid heading="Our latest furniture" items={furnitureGridItems} />
+      <AnimateIn delay={0.05}>
+        <ProductGrid heading="Our latest furniture" items={furnitureGridItems} />
+      </AnimateIn>
 
       {/* The Grand Collection */}
-      <div className="bg-[#DFDAD7] py-[86px]">
+      <AnimateIn className="bg-[#DFDAD7] py-[86px]" delay={0.04}>
         <ProductTextImage
           label="journal"
           title="The Grand Collection"
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Discover more" }]}
           imageSrc={GRAND_COLLECTION_IMAGE}
+          imageSizeClass="aspect-[1038/1384] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="The Grand Collection"
         />
-      </div>
+      </AnimateIn>
 
-      <ProductGrid
-        heading="See more of our latest stories"
-        items={storyGridItems}
-      />
+      <AnimateIn delay={0.05}>
+        <ProductGrid
+          heading="See more of our latest stories"
+          items={storyGridItems}
+        />
+      </AnimateIn>
 
       {/* Jamb Journal */}
-      <div className="py-[176px]">
+      <AnimateIn className="py-[176px]" delay={0.04}>
         <ProductTextImage
           title={
             <>
@@ -271,10 +284,10 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Discover more" }]}
           imageSrc={JOURNAL_IMAGE}
-          imageSizeClass="h-[560px] w-[410px] mr-[86px]"
+          imageSizeClass="aspect-[820/1120] w-full lg:mr-[86px] lg:h-[560px] lg:w-[410px]"
           imageAlt="Jamb Journal"
         />
-      </div>
+      </AnimateIn>
     </div>
   );
 }

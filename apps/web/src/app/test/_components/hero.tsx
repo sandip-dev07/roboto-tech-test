@@ -1,5 +1,6 @@
 import { cn } from "@workspace/ui/lib/utils";
 import Image from "next/image";
+import AnimateIn from "./animate-in";
 
 const IMAGE_URL =
   "https://cdn.sanity.io/images/bvh24m7h/production/e31ab67898a01f48612afd44287f8d6e7ae7cf7d-2210x1256.png";
@@ -29,26 +30,32 @@ export default function Hero({ className }: { className?: string }) {
   return (
     <section className={cn(className)}>
       {/* image section */}
-      <div className="w-full relative h-[768px] rounded-none">
-        <Image
-          src={IMAGE_URL}
-          alt=""
-          fill
-          className="object-cover overflow-hidden rounded-none"
-        />
-      </div>
+      <AnimateIn y={20}>
+        <div className="relative aspect-[2300/1256] w-full rounded-none lg:h-[768px] lg:aspect-auto">
+          <Image
+            src={IMAGE_URL}
+            alt=""
+            fill
+            className="overflow-hidden rounded-none object-cover"
+          />
+        </div>
+      </AnimateIn>
 
       {/* links section */}
-      <div className="py-[16px] text-center lg:py-[32px]">
-        <div className="flex flex-wrap items-center justify-center gap-x-2 text-center text-[16px] leading-[25px] text-color-link">
+      <AnimateIn
+        delay={0.08}
+        y={12}
+        className="px-4 py-[18px] text-center sm:px-6 lg:px-0 lg:py-[32px]"
+      >
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-[14px] leading-[22px] text-color-link sm:text-[15px] sm:leading-[24px] lg:text-[16px] lg:leading-[25px]">
           {navLinks.map((link, index) => (
             <div
               key={`${link.label}-${index}`}
-              className="flex items-center gap-x-2"
+              className="flex items-center gap-x-2 whitespace-nowrap"
             >
               <a
                 href={link.href}
-                className="text-center tracking-[0] transition-opacity font-medium"
+                className="text-center font-medium tracking-[0] transition-opacity"
               >
                 {link.label}
               </a>
@@ -60,7 +67,7 @@ export default function Hero({ className }: { className?: string }) {
             </div>
           ))}
         </div>
-      </div>
+      </AnimateIn>
     </section>
   );
 }

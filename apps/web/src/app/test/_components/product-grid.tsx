@@ -1,5 +1,6 @@
 import { cn } from "@workspace/ui/lib/utils";
 import Image from "next/image";
+import AnimateIn from "./animate-in";
 
 export type ProductGridItem = {
   imageSizeClass?: string;
@@ -22,17 +23,25 @@ function ProductGridCard({
   imageSrc,
   imageAlt,
   href,
-}: ProductGridItem) {
+  index = 0,
+}: ProductGridItem & { index?: number }) {
   const content = (
-    <>
-      <div className={cn(imageSizeClass, "relative overflow-hidden bg-black")}>
-        <Image
-          alt={imageAlt}
-          className="object-contain"
-          fill
-          sizes="(min-width: 1280px) 23vw, (min-width: 768px) 45vw, 100vw"
-          src={imageSrc}
-        />
+    <div className="flex h-full flex-col items-center">
+      <div className="flex w-full items-center justify-center lg:min-h-[253px]">
+        <div
+          className={cn(
+            imageSizeClass,
+            "relative max-w-full overflow-hidden bg-black",
+          )}
+        >
+          <Image
+            alt={imageAlt}
+            className="object-contain"
+            fill
+            sizes="(min-width: 1280px) 23vw, (min-width: 768px) 45vw, 100vw"
+            src={imageSrc}
+          />
+        </div>
       </div>
       <div className="pt-3 text-center">
         <h3 className="text-base font-bold leading-[30px] text-color-secondary">
@@ -42,22 +51,36 @@ function ProductGridCard({
           <p className="text-base text-color-secondary">{subtitle}</p>
         ) : null}
       </div>
-    </>
+    </div>
   );
 
   if (href) {
     return (
-      <a
-        className="group block w-full max-w-fit justify-self-center"
-        href={href}
+      <AnimateIn
+        delay={index * 0.04}
+        y={18}
+        className="h-full w-full justify-self-center self-stretch"
       >
-        {content}
-      </a>
+        <a
+          className="group flex h-full w-full flex-col items-center"
+          href={href}
+        >
+          {content}
+        </a>
+      </AnimateIn>
     );
   }
 
   return (
-    <div className="group w-full max-w-fit justify-self-center">{content}</div>
+    <AnimateIn
+      delay={index * 0.04}
+      y={18}
+      className="h-full w-full justify-self-center self-stretch"
+    >
+      <div className="group flex h-full w-full flex-col items-center">
+        {content}
+      </div>
+    </AnimateIn>
   );
 }
 
@@ -66,20 +89,23 @@ export default function ProductGrid({ heading, items }: ProductGridProps) {
     items.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4";
 
   return (
-    <section className="py-[20px] pb-[40px] bg-[#E3E3E3]">
-      <h2 className=" text-center pb-[24px] text-[22px] leading-[36px] text-black lg:leading-[48px]">
-        {heading}
-      </h2>
+    <section className="bg-[#E3E3E3] py-[20px] pb-[40px]">
+      <AnimateIn y={16}>
+        <h2 className="pb-[24px] text-center text-[22px] leading-[36px] text-black lg:leading-[48px]">
+          {heading}
+        </h2>
+      </AnimateIn>
 
       <div
         className={cn(
-          "grid max-w-container grid-cols-1 justify-items-center items-center gap-y-8 px-[20px] sm:grid-cols-2 sm:gap-x-5 md:px-[38px] lg:gap-x-8 lg:gap-y-10",
+          "grid max-w-container grid-cols-2 justify-items-center items-stretch gap-x-4 gap-y-8 px-[20px] md:gap-x-5 md:px-[38px] lg:gap-x-8 lg:gap-y-10",
           largeGridColsClass,
         )}
       >
         {items.map((item, index) => (
           <ProductGridCard
             key={`${item.title}-${item.imageSrc}-${index}`}
+            index={index}
             {...item}
           />
         ))}
