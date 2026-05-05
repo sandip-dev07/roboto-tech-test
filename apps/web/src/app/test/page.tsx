@@ -110,7 +110,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    sectionHeightClass: "aspect-[189/253]",
+    sectionHeightClass: "aspect-[189/253] lg:aspect-[0/0]",
     imageSizeClass: "aspect-[189/253] w-full lg:h-[253px] lg:w-[189px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/47fa10d664c2aa722914388aab23495e6f32ed19-486x654.png",
@@ -120,7 +120,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    sectionHeightClass: "aspect-[189/253]",
+    sectionHeightClass: "aspect-[189/253] lg:aspect-[0/0]",
     imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/cf2ffcbc500e904ce39b471d521c5c30a8a25052-486x390.png",
@@ -130,7 +130,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    sectionHeightClass: "aspect-[189/253]",
+    sectionHeightClass: "aspect-[189/253] lg:aspect-[0/0]",
     imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/5a5517e978a28089cdc9582bfa6c5c86031a8bef-488x388.png",
@@ -140,7 +140,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    sectionHeightClass: "aspect-[189/253]",
+    sectionHeightClass: "aspect-[189/253] lg:aspect-[0/0]",
     imageSizeClass: "aspect-square w-full lg:h-[232px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/6d2c04c7d8bb5b448f9d7eeba000d229219fdff1-486x488.png",
@@ -150,7 +150,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    sectionHeightClass: "aspect-[189/253]",
+    sectionHeightClass: "aspect-[189/253] lg:aspect-[0/0]",
     imageSizeClass: "aspect-[232/152] w-full lg:h-[152px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/ad1258cea9cc3420c24283484d8b409ca1e35518-486x320.png",
