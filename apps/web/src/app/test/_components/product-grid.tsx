@@ -3,6 +3,7 @@ import Image from "next/image";
 import AnimateIn from "./animate-in";
 
 export type ProductGridItem = {
+  sectionHeightClass?: string;
   imageSizeClass?: string;
   title: string;
   subtitle?: string;
@@ -17,6 +18,7 @@ type ProductGridProps = {
 };
 
 function ProductGridCard({
+  sectionHeightClass,
   imageSizeClass,
   title,
   subtitle,
@@ -26,8 +28,13 @@ function ProductGridCard({
   index = 0,
 }: ProductGridItem & { index?: number }) {
   const content = (
-    <div className="flex h-full flex-col items-center">
-      <div className="flex w-full items-center justify-center lg:min-h-[253px]">
+    <div className="flex w-full h-full flex-col items-center">
+      <div
+        className={cn(
+          "flex w-full items-center justify-center lg:min-h-[253px]",
+          sectionHeightClass,
+        )}
+      >
         <div
           className={cn(
             imageSizeClass,
@@ -43,7 +50,7 @@ function ProductGridCard({
           />
         </div>
       </div>
-      <div className="pt-3 text-center">
+      <div className="pt-2 lg:pt-3 text-center">
         <h3 className="text-base font-bold leading-[30px] text-color-secondary">
           {title}
         </h3>
@@ -98,7 +105,7 @@ export default function ProductGrid({ heading, items }: ProductGridProps) {
 
       <div
         className={cn(
-          "grid max-w-container grid-cols-2 justify-items-center items-stretch gap-x-4 gap-y-8 px-[20px] md:gap-x-5 md:px-[38px] lg:gap-x-8 lg:gap-y-10",
+          "grid max-w-container grid-cols-2 justify-items-center items-stretch gap-x-4 gap-y-5 px-[20px] md:gap-x-5 md:px-[38px] lg:gap-x-8 lg:gap-y-10",
           largeGridColsClass,
         )}
       >

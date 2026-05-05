@@ -31,7 +31,7 @@ export default function Hero({ className }: { className?: string }) {
     <section className={cn(className)}>
       {/* image section */}
       <AnimateIn y={20}>
-        <div className="relative aspect-[2300/1256] w-full rounded-none lg:h-[768px] lg:aspect-auto">
+        <div className="relative aspect-square w-full rounded-none lg:h-[768px] lg:aspect-auto">
           <Image
             src={IMAGE_URL}
             alt=""

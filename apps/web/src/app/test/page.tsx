@@ -67,7 +67,7 @@ const lightingGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
-    imageSizeClass: "h-full aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
+    imageSizeClass: "aspect-[186/253] w-full lg:h-[253px] lg:w-[186px]",
     imageSrc: LIGHTING_IMAGE,
     imageAlt: "Lighting one",
     href: "#",
@@ -110,6 +110,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
+    sectionHeightClass: "aspect-[189/253]",
     imageSizeClass: "aspect-[189/253] w-full lg:h-[253px] lg:w-[189px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/47fa10d664c2aa722914388aab23495e6f32ed19-486x654.png",
@@ -119,6 +120,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
+    sectionHeightClass: "aspect-[189/253]",
     imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/cf2ffcbc500e904ce39b471d521c5c30a8a25052-486x390.png",
@@ -128,6 +130,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
+    sectionHeightClass: "aspect-[189/253]",
     imageSizeClass: "aspect-[233/187] w-full lg:h-[187px] lg:w-[233px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/5a5517e978a28089cdc9582bfa6c5c86031a8bef-488x388.png",
@@ -137,6 +140,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
+    sectionHeightClass: "aspect-[189/253]",
     imageSizeClass: "aspect-square w-full lg:h-[232px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/6d2c04c7d8bb5b448f9d7eeba000d229219fdff1-486x488.png",
@@ -146,6 +150,7 @@ const furnitureGridItems = [
   {
     title: "Lorem Ipsum",
     subtitle: "Subtitle",
+    sectionHeightClass: "aspect-[189/253]",
     imageSizeClass: "aspect-[232/152] w-full lg:h-[152px] lg:w-[232px]",
     imageSrc:
       "https://cdn.sanity.io/images/bvh24m7h/production/ad1258cea9cc3420c24283484d8b409ca1e35518-486x320.png",
@@ -212,7 +217,6 @@ export default function TestPage() {
             { text: "Sell an Antique Chimneypiece" },
           ]}
           imageSrc={IMAGE_URL}
-          imageSizeClass="aspect-[906/1134] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Fireplace"
         />
         {/* Lighting */}
@@ -221,7 +225,6 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Explore our Lighting" }]}
           imageSrc={IMAGE_URL}
-          imageSizeClass="aspect-[906/1134] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Lighting"
         />
       </AnimateIn>
@@ -244,13 +247,15 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Explore our Furniture" }]}
           imageSrc={FURNITURE_IMAGE}
-          imageSizeClass="aspect-[904/1130] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="Furniture"
         />
       </AnimateIn>
 
       <AnimateIn delay={0.05}>
-        <ProductGrid heading="Our latest furniture" items={furnitureGridItems} />
+        <ProductGrid
+          heading="Our latest furniture"
+          items={furnitureGridItems}
+        />
       </AnimateIn>
 
       {/* The Grand Collection */}
@@ -261,7 +266,6 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Discover more" }]}
           imageSrc={GRAND_COLLECTION_IMAGE}
-          imageSizeClass="aspect-[1038/1384] w-full lg:h-[731px] lg:w-[583px]"
           imageAlt="The Grand Collection"
         />
       </AnimateIn>
@@ -284,7 +288,7 @@ export default function TestPage() {
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Discover more" }]}
           imageSrc={JOURNAL_IMAGE}
-          imageSizeClass="aspect-[820/1120] w-full lg:mr-[86px] lg:h-[560px] lg:w-[410px]"
+          imageSizeClass="lg:mr-[86px] lg:h-[560px] lg:w-[410px]"
           imageAlt="Jamb Journal"
         />
       </AnimateIn>
