@@ -5,7 +5,7 @@ const LOGO_URL =
 
 export default function Header() {
   return (
-    <header className="bg-[#f3f0ed] h-[80px] lg:h-[110px] w-full flex items-center justify-between px-5 lg:px-[41px] fixed top-0 left-0 right-0 z-50">
+    <header className="max-w-container h-[110px] bg-background w-full flex items-center justify-between px-5 lg:px-[41px] fixed top-0 left-0 right-0 z-50">
       <div className="h-[35px] lg:h-[45px] w-auto">
         <Image
           height={45}
@@ -46,27 +46,28 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Cart Icon */}
+        {/* Mail Box Icon */}
         <button
           className="w-[28px] lg:w-[32px] h-[20px] lg:h-[23px]"
-          aria-label="Cart"
+          aria-label="Mail"
         >
           <svg
             className="block size-full"
             fill="none"
-            viewBox="0 0 32.2105 22.6667"
+            viewBox="0 0 33 23"
           >
             <rect
-              height="21.1667"
-              stroke="#9C9C9D"
-              strokeWidth="1.5"
-              width="30.7105"
               x="0.75"
               y="0.75"
+              width="30.7105"
+              height="21.1667"
               fill="none"
+              stroke="#9C9C9D"
+              strokeWidth="1.5"
             />
             <path
-              d="M1.52734 2.16016L16.1071 13.6189L30.6868 2.16016"
+              d="M0.450012 0.619629L12.3798 9.567L25.5026 0.619629"
+              transform="translate(3.12893 4.1523)"
               stroke="#9C9C9D"
               strokeWidth="1.5"
               fill="none"

@@ -35,9 +35,11 @@ function ProductGridCard({
         />
       </div>
       <div className="pt-3 text-center">
-        <h3 className="text-base leading-[30px] text-[#7f7f80]">{title}</h3>
+        <h3 className="text-base font-bold leading-[30px] text-color-secondary">
+          {title}
+        </h3>
         {subtitle ? (
-          <p className="text-base text-[#7f7f80]">{subtitle}</p>
+          <p className="text-base text-color-secondary">{subtitle}</p>
         ) : null}
       </div>
     </>
@@ -45,13 +47,18 @@ function ProductGridCard({
 
   if (href) {
     return (
-      <a className="group block w-full max-w-fit justify-self-center" href={href}>
+      <a
+        className="group block w-full max-w-fit justify-self-center"
+        href={href}
+      >
         {content}
       </a>
     );
   }
 
-  return <div className="group w-full max-w-fit justify-self-center">{content}</div>;
+  return (
+    <div className="group w-full max-w-fit justify-self-center">{content}</div>
+  );
 }
 
 export default function ProductGrid({ heading, items }: ProductGridProps) {
@@ -59,8 +66,8 @@ export default function ProductGrid({ heading, items }: ProductGridProps) {
     items.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4";
 
   return (
-    <section className="py-[30px] bg-[#E3E3E3]">
-      <h2 className=" text-center pb-[30px] text-[22px] leading-[36px] text-black lg:leading-[48px]">
+    <section className="py-[20px] pb-[40px] bg-[#E3E3E3]">
+      <h2 className=" text-center pb-[24px] text-[22px] leading-[36px] text-black lg:leading-[48px]">
         {heading}
       </h2>
 

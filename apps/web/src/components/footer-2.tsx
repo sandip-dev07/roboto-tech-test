@@ -91,12 +91,12 @@ function FooterColumnSection({
 }) {
   return (
     <div>
-      <div className="mb-[15px] h-[1px] bg-color-link" />
+      <div className="mb-[14px] h-[1px] bg-color-link" />
       <h4 className="mb-[0px] font-serif text-[16px] leading-[31px] font-medium text-color-primary">
         {title}
       </h4>
       {links.length > 0 ? (
-        <ul className="font-serif text-[16px] leading-[31px] font-medium text-color-link">
+        <ul className="font-serif text-[16px] leading-[30.7px] font-medium text-color-link">
           {links.map((link) => (
             <li key={link}>
               <a href="#">{link}</a>
@@ -110,7 +110,7 @@ function FooterColumnSection({
 
 export default function Footer() {
   return (
-    <footer className="mt-[80px] w-full bg-[#E3E3E3] py-[30px] lg:mt-[110px]">
+    <footer className="mt-[80px] w-full bg-[#E3E3E3] py-[30px] pb-[48px] lg:mt-[110px]">
       <div className="max-w-container mx-auto">
         <div className="flex flex-col gap-[28px] pb-[28px] md:gap-[36px] lg:flex-row lg:items-start lg:justify-between">
           <div className="flex flex-col gap-[20px] sm:flex-row sm:gap-[48px] md:gap-[72px] lg:gap-[100px]">
@@ -146,7 +146,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder={FooterData.newsletter.placeholder}
-                className="h-[43px] w-full min-w-0 flex-1 bg-white px-[8px] text-[16px] font-medium text-color-link sm:min-w-[280px] md:min-w-[401px]"
+                className="h-[43px] w-full min-w-0 flex-1 bg-white px-[8px] text-[16px] font-medium text-color-link font-normal [font-family:var(--font-polaris)] sm:min-w-[280px] md:min-w-[401px]"
               />
               <button className="h-[43px] w-full bg-white px-2.5 text-start font-serif text-base leading-[25px] font-medium text-color-link sm:w-[151px]">
                 {FooterData.newsletter.ctaLabel}

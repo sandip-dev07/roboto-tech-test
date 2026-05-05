@@ -9,6 +9,7 @@ import { CombinedJsonLd } from "@/components/json-ld";
 import { PreviewBar } from "@/components/preview-bar";
 import { Providers } from "@/components/providers";
 import Footer from "@/components/footer-2";
+import Header from "@/components/header";
 
 export default async function RootLayout({
   children,
@@ -21,6 +22,7 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
+          <Header />
           {children}
           <Footer />
           <SanityLive />

@@ -21,6 +21,9 @@ const FURNITURE_IMAGE =
 const GRAND_COLLECTION_IMAGE =
   "https://cdn.sanity.io/images/bvh24m7h/production/9b24ee522a0e4f63fc04b0f8bc7e05b5e4f06d41-1038x1384.png";
 
+const JOURNAL_IMAGE =
+  "https://cdn.sanity.io/images/bvh24m7h/production/083156480a1783c8baceb9c996e2e60e4e0b49d4-820x1120.png";
+
 const DEFAULT_DESCRIPTION =
   "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.";
 
@@ -198,7 +201,7 @@ export default function TestPage() {
     <div className="relative top-[110px] mx-auto min-h-svh">
       <Hero className="max-w-container" />
 
-      <div className="pb-[82px]">
+      <div className="pb-[86px]">
         {/* ProductSplit */}
         <ProductTextImage
           title="Fireplaces"
@@ -221,11 +224,14 @@ export default function TestPage() {
       </div>
 
       {/* ProductGrid */}
-      <ProductGrid heading="Our latest chimneypieces" items={chimneyGridItems} />
+      <ProductGrid
+        heading="Our latest chimneypieces"
+        items={chimneyGridItems}
+      />
       <ProductGrid heading="Our latest lighting" items={lightingGridItems} />
 
       {/* Furniture */}
-      <div className="py-[82px]">
+      <div className="py-[86px]">
         <ProductTextImage
           title="Furniture"
           description={DEFAULT_DESCRIPTION}
@@ -238,8 +244,9 @@ export default function TestPage() {
       <ProductGrid heading="Our latest furniture" items={furnitureGridItems} />
 
       {/* The Grand Collection */}
-      <div className="bg-[#DFDAD7] py-[82px]">
+      <div className="bg-[#DFDAD7] py-[86px]">
         <ProductTextImage
+          label="journal"
           title="The Grand Collection"
           description={DEFAULT_DESCRIPTION}
           buttons={[{ text: "Discover more" }]}
@@ -252,6 +259,22 @@ export default function TestPage() {
         heading="See more of our latest stories"
         items={storyGridItems}
       />
+
+      {/* Jamb Journal */}
+      <div className="py-[176px]">
+        <ProductTextImage
+          title={
+            <>
+              Subscribe to the <br /> Jamb Journal
+            </>
+          }
+          description={DEFAULT_DESCRIPTION}
+          buttons={[{ text: "Discover more" }]}
+          imageSrc={JOURNAL_IMAGE}
+          imageSizeClass="h-[560px] w-[410px] mr-[86px]"
+          imageAlt="Jamb Journal"
+        />
+      </div>
     </div>
   );
 }

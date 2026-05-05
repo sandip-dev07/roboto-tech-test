@@ -11,7 +11,7 @@ const links = {
   },
   link2: {
     label: "Lighting",
-    href: "#",
+    href: "#/",
   },
   link3: {
     label: "Furniture",
@@ -39,21 +39,21 @@ export default function Hero({ className }: { className?: string }) {
       </div>
 
       {/* links section */}
-      <div className="py-[16px] text-center lg:py-[29px]">
-        <div className="flex flex-wrap items-center justify-center gap-x-3 text-center text-[16px] leading-[25px] text-[#9c9c9d]">
+      <div className="py-[16px] text-center lg:py-[32px]">
+        <div className="flex flex-wrap items-center justify-center gap-x-2 text-center text-[16px] leading-[25px] text-color-link">
           {navLinks.map((link, index) => (
             <div
               key={`${link.label}-${index}`}
-              className="flex items-center gap-x-3"
+              className="flex items-center gap-x-2"
             >
               <a
                 href={link.href}
-                className="text-center tracking-[0] transition-opacity hover:opacity-70 font-medium"
+                className="text-center tracking-[0] transition-opacity font-medium"
               >
                 {link.label}
               </a>
               {index < navLinks.length - 1 ? (
-                <span aria-hidden="true" className="text-[#9C9C9D]">
+                <span aria-hidden="true" className="text-color-link">
                   |
                 </span>
               ) : null}

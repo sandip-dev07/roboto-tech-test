@@ -23,12 +23,21 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Galaxie Polaris Medium";
+  src: url("/fonts/GalaxiePolarisCondensed-Book.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
 :root {
   --background: #f3f0ed;
   --foreground: #000000;
   --text-primary: #000000;
   --text-secondary: #737373;
   --text-link: #9c9c9d;
+  --font-polaris: "Galaxie Polaris Medium", serif;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
