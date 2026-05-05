@@ -1,258 +1,223 @@
 import { sanityFetch } from "@workspace/sanity/live";
 import {
+  queryFooterData,
   queryGlobalSeoSettings,
-  querySettingsData,
 } from "@workspace/sanity/query";
 import type {
+  QueryFooterDataResult,
   QueryGlobalSeoSettingsResult,
-  QuerySettingsDataResult,
 } from "@workspace/sanity/types";
 import Link from "next/link";
 
-type FooterSettings = NonNullable<QueryGlobalSeoSettingsResult> &
-  Pick<NonNullable<QuerySettingsDataResult>, "contactEmail">;
+import { Logo } from "./logo";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  XIcon,
+  YoutubeIcon,
+} from "./social-icons";
 
-const FALLBACK_EMAIL = "hello@jamb.co.uk";
-const FOOTER_PHONE = "+44 (0) 207 730 2122";
-const FOOTER_ADDRESS = ["95-97 Pimlico Rd", "London SW1W 8PH"];
+type SocialLinksProps = {
+  data: NonNullable<QueryGlobalSeoSettingsResult>["socialLinks"];
+};
 
-const FOOTER_COLUMNS = [
-  [
-    {
-      title: "Reproduction Chimneypieces",
-      links: ["Marble", "Stone", "Grates & Accessories", "Guide to Jamb Marbles"],
-    },
-    {
-      title: "Antique Chimneypieces",
-      links: ["French & Italian", "Georgian", "Regency"],
-    },
-    {
-      title: "Sell an Antique Chimneypiece",
-      links: [],
-    },
-  ],
-  [
-    {
-      title: "Reproduction Lighting",
-      links: [
-        "Hanging Globes",
-        "Hanging Lanterns",
-        "Wall Lights",
-        "Dish Lights",
-        "Table Lamps",
-        "Chains & Brackets",
-      ],
-    },
-  ],
-  [
-    {
-      title: "Reproduction Furniture",
-      links: ["Seating", "Tables", "Mirrors", "The Pantry Collection"],
-    },
-    {
-      title: "Antique Furniture",
-      links: [
-        "Seating",
-        "Tables",
-        "Desks",
-        "Bookcases & Cabinets",
-        "Chests",
-        "Mirrors",
-        "Fire Accessories",
-        "Objects",
-        "Works of Arts",
-        "Lighting",
-      ],
-    },
-  ],
-  [
-    {
-      title: "Journal",
-      links: [
-        "Praesentium",
-        "Voluptatibus",
-        "Accusamus",
-        "Iusto",
-        "Dignissimos",
-      ],
-    },
-  ],
-  [
-    {
-      title: "About",
-      links: [
-        "Founders",
-        "Team",
-        "History",
-        "Galleries",
-        "Workshops",
-        "Showrooms",
-        "Terms & Conditions",
-      ],
-    },
-  ],
-] as const;
+type FooterProps = {
+  data: NonNullable<QueryFooterDataResult>;
+  settingsData: NonNullable<QueryGlobalSeoSettingsResult>;
+};
 
 export async function FooterServer() {
-  const [settingsResponse, settingsMetaResponse] = await Promise.all([
+  const [response, settingsResponse] = await Promise.all([
+    sanityFetch({
+      query: queryFooterData,
+    }),
     sanityFetch({
       query: queryGlobalSeoSettings,
     }),
-    sanityFetch({
-      query: querySettingsData,
-    }),
   ]);
 
-  if (!(settingsResponse?.data && settingsMetaResponse?.data)) {
+  if (!(response?.data && settingsResponse?.data)) {
     return <FooterSkeleton />;
   }
+  return <Footer data={response.data} settingsData={settingsResponse.data} />;
+}
 
-  const settingsData: FooterSettings = {
-    ...settingsResponse.data,
-    contactEmail: settingsMetaResponse.data.contactEmail ?? null,
-  };
+function SocialLinks({ data }: SocialLinksProps) {
+  if (!data) {
+    return null;
+  }
 
-  return <Footer settingsData={settingsData} />;
+  const { facebook, twitter, instagram, youtube, linkedin } = data;
+
+  const socialLinks = [
+    {
+      url: instagram,
+      Icon: InstagramIcon,
+      label: "Follow us on Instagram",
+    },
+    {
+      url: facebook,
+      Icon: FacebookIcon,
+      label: "Follow us on Facebook",
+    },
+    { url: twitter, Icon: XIcon, label: "Follow us on Twitter" },
+    {
+      url: linkedin,
+      Icon: LinkedinIcon,
+      label: "Follow us on LinkedIn",
+    },
+    {
+      url: youtube,
+      Icon: YoutubeIcon,
+      label: "Subscribe to our YouTube channel",
+    },
+  ].filter((link) => link.url);
+
+  return (
+    <ul className="flex items-center space-x-6 text-muted-foreground">
+      {socialLinks.map(({ url, Icon, label }, index) => (
+        <li
+          className="font-medium hover:text-primary"
+          key={`social-link-${url}-${index.toString()}`}
+        >
+          <Link
+            aria-label={label}
+            href={url ?? "#"}
+            prefetch={false}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icon className="fill-muted-foreground hover:fill-primary/80 dark:fill-zinc-400 dark:hover:fill-primary" />
+            <span className="sr-only">{label}</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export function FooterSkeleton() {
   return (
-    <footer className="mt-20 bg-[#e3e3e3] text-[#9f9f9f]">
-      <section className="mx-auto max-w-screen-2xl px-6 py-10 md:px-10 lg:py-12">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_1.1fr_2fr] lg:items-start">
-          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
-            <div className="space-y-3">
-              <div className="h-7 w-56 animate-pulse rounded bg-stone-300/70" />
-              <div className="h-7 w-52 animate-pulse rounded bg-stone-300/70" />
-              <div className="h-7 w-48 animate-pulse rounded bg-stone-300/70" />
+    <footer className="mt-16 pb-8">
+      <section className="container mx-auto px-4 md:px-6">
+        <div className="h-[500px] lg:h-auto">
+          <div className="flex flex-col items-center justify-between gap-10 text-center lg:flex-row lg:text-left">
+            <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
+              <div>
+                <span className="flex items-center justify-center gap-4 lg:justify-start">
+                  <div className="h-[40px] w-[80px] animate-pulse rounded bg-muted" />
+                </span>
+                <div className="mt-6 h-16 w-full animate-pulse rounded bg-muted" />
+              </div>
+              <div className="flex items-center space-x-6">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    className="h-6 w-6 animate-pulse rounded bg-muted"
+                    key={i}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="h-7 w-56 animate-pulse rounded bg-stone-300/70" />
-          </div>
-          <div className="space-y-5">
-            <div className="h-7 w-36 animate-pulse rounded bg-stone-300/70" />
-            <div className="h-14 w-full animate-pulse rounded bg-stone-300/70" />
-            <div className="h-7 w-80 animate-pulse rounded bg-stone-300/70" />
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-5">
-          {Array.from({ length: 5 }).map((_, columnIndex) => (
-            <div className="space-y-8" key={`footer-skeleton-${columnIndex.toString()}`}>
-              {Array.from({ length: columnIndex === 0 || columnIndex === 2 ? 2 : 1 }).map(
-                (_, sectionIndex) => (
-                  <div className="border-stone-500/60 border-t pt-5" key={sectionIndex}>
-                    <div className="h-8 w-48 animate-pulse rounded bg-stone-300/70" />
-                    <div className="mt-5 space-y-4">
-                      {Array.from({ length: 4 }).map((__, itemIndex) => (
-                        <div
-                          className="h-6 w-40 animate-pulse rounded bg-stone-300/70"
-                          key={itemIndex}
-                        />
-                      ))}
-                    </div>
+            <div className="grid grid-cols-3 gap-6 lg:gap-20">
+              {[1, 2, 3].map((col) => (
+                <div key={col}>
+                  <div className="mb-6 h-6 w-24 animate-pulse rounded bg-muted" />
+                  <div className="space-y-4">
+                    {[1, 2, 3, 4].map((item) => (
+                      <div
+                        className="h-4 w-full animate-pulse rounded bg-muted"
+                        key={item}
+                      />
+                    ))}
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="mt-20 flex flex-col justify-between gap-4 border-t pt-8 text-center lg:flex-row lg:items-center lg:text-left">
+            <div className="h-4 w-48 animate-pulse rounded bg-muted" />
+            <div className="flex justify-center gap-4 lg:justify-start">
+              <div className="h-4 w-32 animate-pulse rounded bg-muted" />
+              <div className="h-4 w-24 animate-pulse rounded bg-muted" />
+            </div>
+          </div>
         </div>
       </section>
     </footer>
   );
 }
 
-function FooterSection({
-  title,
-  links,
-}: {
-  title: string;
-  links: readonly string[];
-}) {
-  return (
-    <section className="border-stone-500/60 border-t pt-5">
-      <h3 className="font-serif text-[1.1rem] leading-none text-[#1d1d1b] sm:text-[1.35rem]">
-        {title}
-      </h3>
-      {links.length > 0 ? (
-        <ul className="mt-4 space-y-2.5 font-light text-[1rem] leading-tight text-[#9f9f9f] sm:text-[1.1rem]">
-          {links.map((link) => (
-            <li key={link}>
-              <Link className="transition-colors hover:text-[#1d1d1b]" href="#">
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </section>
-  );
-}
-
-function Footer({ settingsData }: { settingsData: FooterSettings }) {
-  const contactEmail = settingsData.contactEmail || FALLBACK_EMAIL;
+function Footer({ data, settingsData }: FooterProps) {
+  const { subtitle, columns } = data;
+  const { siteTitle, logo, socialLinks } = settingsData;
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-20 bg-[#e3e3e3] text-[#9f9f9f]">
-      <section className="mx-auto max-w-screen-2xl px-6 py-10 md:px-10 lg:py-12">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_1.1fr_2fr] lg:items-start">
-          <div className="grid gap-6 font-light text-[1.1rem] leading-tight sm:grid-cols-2 sm:text-[1.35rem] lg:col-span-2">
-            <div>
-              <p>Tel: {FOOTER_PHONE}</p>
-              {FOOTER_ADDRESS.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
-            </div>
-            <div>
-              <a
-                className="transition-colors hover:text-[#1d1d1b]"
-                href={`mailto:${contactEmail}`}
-              >
-                {contactEmail}
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="font-light text-[1.1rem] leading-tight sm:text-[1.35rem]">
-              Newsletter
-            </h2>
-            <form action="#" className="mt-3 space-y-4">
-              <div className="grid overflow-hidden border border-[#d8d8d8] bg-white sm:grid-cols-[1fr_auto]">
-                <input
-                  className="min-h-14 border-0 bg-transparent px-3 font-light text-[1rem] text-[#1d1d1b] outline-none placeholder:text-[#a5a5a5] sm:text-[1.1rem]"
-                  placeholder="Search"
-                  type="text"
-                />
-                <button
-                  className="border-[#d8d8d8] border-t px-4 py-3 text-left font-light text-[1rem] text-[#7d7d7d] transition-colors hover:bg-stone-100 hover:text-[#1d1d1b] sm:border-t-0 sm:border-l sm:px-5 sm:text-[1.1rem]"
-                  type="submit"
-                >
-                  Subscribe
-                </button>
+    <footer className="mt-20 pb-8">
+      <section className="container mx-auto">
+        <div className="h-[500px] lg:h-auto">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 px-4 text-center md:px-6 lg:flex-row lg:text-left">
+            <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 md:gap-8 lg:items-start">
+              <div>
+                <span className="flex items-center justify-center gap-4 lg:justify-start">
+                  <Logo alt={siteTitle} image={logo} priority />
+                </span>
+                {subtitle && (
+                  <p className="mt-6 text-muted-foreground text-sm dark:text-zinc-400">
+                    {subtitle}
+                  </p>
+                )}
               </div>
-              <label className="flex items-center gap-3 font-light text-[1rem] text-[#9f9f9f] sm:text-[1.1rem]">
-                <input
-                  className="size-4 appearance-none rounded-full border border-[#9f9f9f] bg-transparent checked:border-[#1d1d1b] checked:bg-[#1d1d1b]"
-                  type="checkbox"
-                />
-                <span>I agree to our Privacy Policy</span>
-              </label>
-            </form>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-5">
-          {FOOTER_COLUMNS.map((group, groupIndex) => (
-            <div className="space-y-8" key={`footer-column-${groupIndex.toString()}`}>
-              {group.map((section) => (
-                <FooterSection
-                  key={section.title}
-                  links={section.links}
-                  title={section.title}
-                />
-              ))}
+              {socialLinks && <SocialLinks data={socialLinks} />}
             </div>
-          ))}
+            {Array.isArray(columns) && columns?.length > 0 && (
+              <div className="grid grid-cols-3 gap-6 lg:mr-20 lg:gap-28">
+                {columns.map((column, index) => (
+                  <div key={`column-${column?._key}-${index}`}>
+                    <h3 className="mb-6 font-semibold">{column?.title}</h3>
+                    {column?.links && column?.links?.length > 0 && (
+                      <ul className="space-y-4 text-muted-foreground text-sm dark:text-zinc-400">
+                        {column?.links?.map((link, columnIndex) => (
+                          <li
+                            className="font-medium hover:text-primary"
+                            key={`${link?._key}-${columnIndex}-column-${column?._key}`}
+                          >
+                            <Link
+                              href={link.href ?? "#"}
+                              rel={
+                                link.openInNewTab
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
+                              target={link.openInNewTab ? "_blank" : undefined}
+                            >
+                              {link.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="mt-20 border-t pt-8">
+            <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-4 text-center font-normal text-muted-foreground text-sm md:px-6 lg:flex-row lg:items-center lg:text-left">
+              <p>
+                © {year} {siteTitle}. All rights reserved.
+              </p>
+              <ul className="flex justify-center gap-4 lg:justify-start">
+                <li className="hover:text-primary">
+                  <Link href="/terms">Terms and Conditions</Link>
+                </li>
+                <li className="hover:text-primary">
+                  <Link href="/privacy">Privacy Policy</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </footer>

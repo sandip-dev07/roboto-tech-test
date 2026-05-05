@@ -14,6 +14,7 @@
     "format:check": "biome format .",
     "deploy-graphql": "sanity graphql deploy",
     "extract": "sanity schema extract",
+    "seed:sanity-page": "sanity documents create scripts/data/sanity-page.json --replace",
     "check-types": "tsc --noEmit",
     "type": "sanity typegen generate",
     "postinstall": "sanity exec scripts/cli-alert-for-data.ts"

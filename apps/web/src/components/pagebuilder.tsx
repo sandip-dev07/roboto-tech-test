@@ -9,10 +9,10 @@ import type { PageBuilderBlock, PageBuilderBlockTypes } from "@/types";
 import { CTABlock } from "./sections/cta";
 import { FaqAccordion } from "./sections/faq-accordion";
 import { FeatureCardsWithIcon } from "./sections/feature-cards-with-icon";
-import { FireplacesShowcaseSection } from "./sections/fireplaces-showcase";
-import { HeroBlock } from "./sections/hero";
+import HeroBlock from "./sections/hero";
 import { ImageLinkCards } from "./sections/image-link-cards";
-import { LatestChimneypiecesSection } from "./sections/latest-chimneypieces";
+import { ProductGridShowcase } from "./sections/product-grid-showcase";
+import { ProductShowcase } from "./sections/product-showcase";
 import { RichTextBlock } from "./sections/rich-text-block";
 import { SubscribeNewsletter } from "./sections/subscribe-newsletter";
 
@@ -33,6 +33,8 @@ const BLOCK_COMPONENTS = {
   cta: CTABlock,
   faqAccordion: FaqAccordion,
   hero: HeroBlock,
+  productShowcase: ProductShowcase,
+  productGridShowcase: ProductGridShowcase,
   featureCardsIcon: FeatureCardsWithIcon,
   subscribeNewsletter: SubscribeNewsletter,
   imageLinkCards: ImageLinkCards,
@@ -86,7 +88,7 @@ function UnknownBlockError({
  */
 function useOptimisticPageBuilder(
   initialBlocks: PageBuilderBlock[],
-  documentId: string
+  documentId: string,
 ) {
   // biome-ignore lint/suspicious/noExplicitAny: <any is used to allow for dynamic component rendering>
   return useOptimistic<PageBuilderBlock[], any>(
@@ -96,7 +98,7 @@ function useOptimisticPageBuilder(
         return action.document.pageBuilder;
       }
       return currentBlocks;
-    }
+    },
   );
 }
 
@@ -111,11 +113,11 @@ function useBlockRenderer(id: string, type: string) {
         type,
         path: `pageBuilder[_key=="${blockKey}"]`,
       }),
-    [id, type]
+    [id, type],
   );
 
   const renderBlock = useCallback(
-    (block: PageBuilderBlock, index: number) => {
+    (block: PageBuilderBlock, _index: number) => {
       const Component =
         BLOCK_COMPONENTS[block._type as keyof typeof BLOCK_COMPONENTS];
 
@@ -130,23 +132,16 @@ function useBlockRenderer(id: string, type: string) {
       }
 
       return (
-        <div key={`${block._type}-${block._key}-group`}>
-          <div
-            data-sanity={createBlockDataAttribute(block._key)}
-          >
-            {/** biome-ignore lint/suspicious/noExplicitAny: <any is used to allow for dynamic component rendering> */}
-            <Component {...(block as any)} />
-          </div>
-          {type === "homePage" && index === 0 && block._type === "hero" ? (
-            <>
-              <FireplacesShowcaseSection />
-              <LatestChimneypiecesSection />
-            </>
-          ) : null}
+        <div
+          data-sanity={createBlockDataAttribute(block._key)}
+          key={`${block._type}-${block._key}`}
+        >
+          {/** biome-ignore lint/suspicious/noExplicitAny: <any is used to allow for dynamic component rendering> */}
+          <Component {...(block as any)} />
         </div>
       );
     },
-    [createBlockDataAttribute, type]
+    [createBlockDataAttribute],
   );
 
   return { renderBlock };
@@ -165,7 +160,7 @@ export function PageBuilder({
 
   const containerDataAttribute = useMemo(
     () => createSanityDataAttribute({ id, type, path: "pageBuilder" }),
-    [id, type]
+    [id, type],
   );
 
   if (!blocks.length) {
@@ -174,7 +169,7 @@ export function PageBuilder({
 
   return (
     <main
-      className="mx-auto my-16 flex max-w-7xl flex-col gap-16"
+      className="mx-auto flex w-full flex-col gap-0 relative top-[80px] min-h-svh md:top-[92px] lg:top-[110px]"
       data-sanity={containerDataAttribute}
     >
       {blocks.map(renderBlock)}

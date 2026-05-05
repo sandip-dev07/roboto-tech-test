@@ -8,8 +8,10 @@ import { preconnect, prefetchDNS } from "react-dom";
 import { CombinedJsonLd } from "@/components/json-ld";
 import { PreviewBar } from "@/components/preview-bar";
 import { Providers } from "@/components/providers";
-import Footer from "@/components/footer-2";
+// import Footer from "@/components/footer-2";
 import Header from "@/components/header";
+import { FooterServer } from "@/components/footer";
+import Footer from "@/components/footer-2";
 
 export default async function RootLayout({
   children,
@@ -24,6 +26,7 @@ export default async function RootLayout({
         <Providers>
           <Header />
           {children}
+          <FooterServer />
           <Footer />
           <SanityLive />
           <CombinedJsonLd includeOrganization includeWebsite />

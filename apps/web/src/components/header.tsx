@@ -5,7 +5,7 @@ const LOGO_URL =
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-[80px] w-full items-center bg-background md:h-[92px] lg:h-[110px]">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-[80px] w-full items-center bg-background md:h-[92px] lg:h-[110px] border-b">
       <nav className="max-w-container mx-auto flex w-full items-center justify-between gap-4">
         <div className="relative shrink-0 h-[32px] w-[77px] lg:h-[45px] lg:w-[108px]">
           <Image
