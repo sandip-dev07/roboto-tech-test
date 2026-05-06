@@ -1,0 +1,646 @@
+{
+  "_id": "homePage",
+  "_type": "homePage",
+  "title": "Jamb Home",
+  "description": "A CMS-driven home page built with Sanity page builder blocks, featuring hero navigation, editorial product sections, curated grids, and journal callouts.",
+  "slug": {
+    "_type": "slug",
+    "current": "/"
+  },
+  "image": {
+    "_type": "image",
+    "asset": {
+      "_type": "reference",
+      "_ref": "image-e31ab67898a01f48612afd44287f8d6e7ae7cf7d-2210x1256-png"
+    },
+    "alt": "Decorative hero image"
+  },
+  "seoTitle": "Jamb Home",
+  "seoDescription": "A CMS-driven home page built with Sanity page builder blocks, featuring hero navigation, editorial product sections, curated grids, and journal callouts.",
+  "ogTitle": "Jamb Home",
+  "ogDescription": "A CMS-driven home page built with Sanity page builder blocks, featuring hero navigation, editorial product sections, curated grids, and journal callouts.",
+  "pageBuilder": [
+    {
+      "_type": "hero",
+      "_key": "hero-home",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-e31ab67898a01f48612afd44287f8d6e7ae7cf7d-2210x1256-png"
+        },
+        "alt": "Decorative hero image"
+      },
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "hero-link-fireplaces",
+          "text": "Fireplaces",
+          "variant": "link",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#fireplaces"
+          }
+        },
+        {
+          "_type": "button",
+          "_key": "hero-link-lighting",
+          "text": "Lighting",
+          "variant": "link",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#lighting"
+          }
+        },
+        {
+          "_type": "button",
+          "_key": "hero-link-furniture",
+          "text": "Furniture",
+          "variant": "link",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#furniture"
+          }
+        },
+        {
+          "_type": "button",
+          "_key": "hero-link-journal",
+          "text": "Journal",
+          "variant": "link",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#journal"
+          }
+        }
+      ]
+    },
+    {
+      "_type": "productShowcase",
+      "_key": "showcase-fireplaces",
+      "sectionId": "fireplaces",
+      "title": "Fireplaces",
+      "description": "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.",
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "btn-fireplaces-explore",
+          "text": "Explore our Fireplaces",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#latest-chimneypieces"
+          }
+        },
+        {
+          "_type": "button",
+          "_key": "btn-fireplaces-sell",
+          "text": "Sell an Antique Chimneypiece",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "/"
+          }
+        }
+      ],
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-2af57bcb9ec61e2265710f088d8522bf5c8e0970-906x1134-png"
+        },
+        "alt": "Fireplace detail"
+      },
+      "backgroundTone": "none"
+    },
+    {
+      "_type": "productShowcase",
+      "_key": "showcase-lighting",
+      "sectionId": "lighting",
+      "title": "Lighting",
+      "description": "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.",
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "btn-lighting-explore",
+          "text": "Explore our Lighting",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#latest-lighting"
+          }
+        }
+      ],
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-2af57bcb9ec61e2265710f088d8522bf5c8e0970-906x1134-png"
+        },
+        "alt": "Lighting detail"
+      },
+      "backgroundTone": "none"
+    },
+    {
+      "_type": "productGridShowcase",
+      "_key": "grid-chimneypieces",
+      "sectionId": "latest-chimneypieces",
+      "heading": "Our latest chimneypieces",
+      "backgroundTone": "mist",
+      "items": [
+        {
+          "_type": "productGridItem",
+          "_key": "chimneypiece-1",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-f4dbabd3e0efc6eee8e802494737e96ae9d821ee-1500x1099-jpg"
+            },
+            "alt": "Chimneypiece one"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "chimneypiece-2",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-f4dbabd3e0efc6eee8e802494737e96ae9d821ee-1500x1099-jpg"
+            },
+            "alt": "Chimneypiece two"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "chimneypiece-3",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-f4dbabd3e0efc6eee8e802494737e96ae9d821ee-1500x1099-jpg"
+            },
+            "alt": "Chimneypiece three"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "chimneypiece-4",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-f4dbabd3e0efc6eee8e802494737e96ae9d821ee-1500x1099-jpg"
+            },
+            "alt": "Chimneypiece four"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        }
+      ]
+    },
+    {
+      "_type": "productGridShowcase",
+      "_key": "grid-lighting",
+      "sectionId": "latest-lighting",
+      "heading": "Our latest lighting",
+      "backgroundTone": "mist",
+      "items": [
+        {
+          "_type": "productGridItem",
+          "_key": "lighting-1",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-248e8db45e63e57766b13c1c8ebb7f462ac58def-2008x2731-jpg"
+            },
+            "alt": "Lighting one"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "lighting-2",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-248e8db45e63e57766b13c1c8ebb7f462ac58def-2008x2731-jpg"
+            },
+            "alt": "Lighting two"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "lighting-3",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-248e8db45e63e57766b13c1c8ebb7f462ac58def-2008x2731-jpg"
+            },
+            "alt": "Lighting three"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "lighting-4",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-248e8db45e63e57766b13c1c8ebb7f462ac58def-2008x2731-jpg"
+            },
+            "alt": "Lighting four"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "lighting-5",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-248e8db45e63e57766b13c1c8ebb7f462ac58def-2008x2731-jpg"
+            },
+            "alt": "Lighting five"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        }
+      ]
+    },
+    {
+      "_type": "productShowcase",
+      "_key": "showcase-furniture",
+      "sectionId": "furniture",
+      "title": "Furniture",
+      "description": "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.",
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "btn-furniture-explore",
+          "text": "Explore our Furniture",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#latest-furniture"
+          }
+        }
+      ],
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-bcf8051eff53ee417aca8185dfa5c801953049e3-904x1130-png"
+        },
+        "alt": "Furniture detail"
+      },
+      "backgroundTone": "none"
+    },
+    {
+      "_type": "productGridShowcase",
+      "_key": "grid-furniture",
+      "sectionId": "latest-furniture",
+      "heading": "Our latest furniture",
+      "backgroundTone": "mist",
+      "items": [
+        {
+          "_type": "productGridItem",
+          "_key": "furniture-1",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-47fa10d664c2aa722914388aab23495e6f32ed19-486x654-png"
+            },
+            "alt": "Furniture one"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "furniture-2",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-cf2ffcbc500e904ce39b471d521c5c30a8a25052-486x390-png"
+            },
+            "alt": "Furniture two"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "furniture-3",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-5a5517e978a28089cdc9582bfa6c5c86031a8bef-488x388-png"
+            },
+            "alt": "Furniture three"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "furniture-4",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-6d2c04c7d8bb5b448f9d7eeba000d229219fdff1-486x488-png"
+            },
+            "alt": "Furniture four"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "furniture-5",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-ad1258cea9cc3420c24283484d8b409ca1e35518-486x320-png"
+            },
+            "alt": "Furniture five"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/"
+          }
+        }
+      ]
+    },
+    {
+      "_type": "productShowcase",
+      "_key": "showcase-grand-collection",
+      "sectionId": "grand-collection",
+      "eyebrow": "journal",
+      "title": "The Grand Collection",
+      "description": "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.",
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "btn-grand-collection",
+          "text": "Discover more",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "#stories"
+          }
+        }
+      ],
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-9b24ee522a0e4f63fc04b0f8bc7e05b5e4f06d41-1038x1384-png"
+        },
+        "alt": "The Grand Collection"
+      },
+      "backgroundTone": "sand"
+    },
+    {
+      "_type": "productGridShowcase",
+      "_key": "grid-stories",
+      "sectionId": "stories",
+      "heading": "See more of our latest stories",
+      "backgroundTone": "mist",
+      "items": [
+        {
+          "_type": "productGridItem",
+          "_key": "story-1",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-c31da3ca256f42ff1a3310ca8d64b69b8d62df9b-2656x3984-jpg"
+            },
+            "alt": "Story one"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/blog"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "story-2",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-c31da3ca256f42ff1a3310ca8d64b69b8d62df9b-2656x3984-jpg"
+            },
+            "alt": "Story two"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/blog"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "story-3",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-c31da3ca256f42ff1a3310ca8d64b69b8d62df9b-2656x3984-jpg"
+            },
+            "alt": "Story three"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/blog"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "story-4",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-c31da3ca256f42ff1a3310ca8d64b69b8d62df9b-2656x3984-jpg"
+            },
+            "alt": "Story four"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/blog"
+          }
+        },
+        {
+          "_type": "productGridItem",
+          "_key": "story-5",
+          "title": "Lorem Ipsum",
+          "subtitle": "Subtitle",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_type": "reference",
+              "_ref": "image-c31da3ca256f42ff1a3310ca8d64b69b8d62df9b-2656x3984-jpg"
+            },
+            "alt": "Story five"
+          },
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "external": "/blog"
+          }
+        }
+      ]
+    },
+    {
+      "_type": "productShowcase",
+      "_key": "showcase-journal",
+      "sectionId": "journal",
+      "title": "Subscribe to the\nJamb Journal",
+      "description": "Lorem ipsum dolor sit amet, incididunt ut labore et dolore consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim labore et dolore magn ad minim veniam.",
+      "buttons": [
+        {
+          "_type": "button",
+          "_key": "btn-journal-discover",
+          "text": "Discover more",
+          "variant": "outline",
+          "url": {
+            "_type": "customUrl",
+            "type": "external",
+            "openInNewTab": false,
+            "external": "/blog"
+          }
+        }
+      ],
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-083156480a1783c8baceb9c996e2e60e4e0b49d4-820x1120-png"
+        },
+        "alt": "Jamb Journal"
+      },
+      "backgroundTone": "none"
+    }
+  ]
+}

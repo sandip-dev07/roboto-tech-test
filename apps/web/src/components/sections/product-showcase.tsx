@@ -2,7 +2,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import Link from "next/link";
 
 import type { PagebuilderType } from "@/types";
-import AnimateIn from "../animate-in";
+import AnimateIn from "@/components/animate-in";
 import { SanityImage } from "../elements/sanity-image";
 
 type ProductShowcaseProps = PagebuilderType<"productShowcase">;

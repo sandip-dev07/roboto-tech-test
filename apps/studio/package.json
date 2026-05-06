@@ -15,6 +15,7 @@
     "deploy-graphql": "sanity graphql deploy",
     "extract": "sanity schema extract",
     "seed:footer": "sanity documents create scripts/data/footer.json --replace",
+    "seed:home-page": "sanity documents create scripts/data/home-page.json --replace",
     "seed:sanity-page": "sanity documents create scripts/data/sanity-page.json --replace",
     "seed:settings": "sanity documents create scripts/data/settings.json --replace",
     "check-types": "tsc --noEmit",

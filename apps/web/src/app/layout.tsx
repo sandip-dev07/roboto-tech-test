@@ -8,8 +8,7 @@ import { CombinedJsonLd } from "@/components/json-ld";
 import { PreviewBar } from "@/components/preview-bar";
 import { Providers } from "@/components/providers";
 import Header from "@/components/header";
-import Footer from "@/components/footer-2";
-import { getNavigationData } from "@/lib/navigation";
+import Footer from "@/components/footer";
 
 export default async function RootLayout({
   children,
@@ -18,7 +17,6 @@ export default async function RootLayout({
 }>) {
   preconnect("https://cdn.sanity.io");
   prefetchDNS("https://cdn.sanity.io");
-  const nav = await getNavigationData();
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">

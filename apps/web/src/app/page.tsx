@@ -1,33 +1,30 @@
 import { sanityFetch } from "@workspace/sanity/live";
-import { querySlugPageData } from "@workspace/sanity/query";
+import { queryHomePageData } from "@workspace/sanity/query";
 import { notFound } from "next/navigation";
 
 import { PageBuilder } from "@/components/pagebuilder";
 import { getSEOMetadata } from "@/lib/seo";
 
-const SANITY_PAGE_SLUG = "/sanity";
-
-async function fetchSanityPageData() {
+async function fetchHomePageData() {
   return await sanityFetch({
-    query: querySlugPageData,
-    params: { slug: SANITY_PAGE_SLUG },
+    query: queryHomePageData,
   });
 }
 
 export async function generateMetadata() {
-  const { data: pageData } = await fetchSanityPageData();
+  const { data: pageData } = await fetchHomePageData();
 
   return getSEOMetadata({
     title: pageData?.title ?? pageData?.seoTitle,
     description: pageData?.description ?? pageData?.seoDescription,
-    slug: SANITY_PAGE_SLUG,
+    slug: "/",
     contentId: pageData?._id,
     contentType: pageData?._type,
   });
 }
 
-export default async function SanityPage() {
-  const { data: pageData } = await fetchSanityPageData();
+export default async function HomePage() {
+  const { data: pageData } = await fetchHomePageData();
 
   if (!pageData) {
     return notFound();

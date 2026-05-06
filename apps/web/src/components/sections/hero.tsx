@@ -1,7 +1,7 @@
-import AnimateIn from "@/app/sanity/_components/animate-in";
+import AnimateIn from "@/components/animate-in";
 import type { PagebuilderType } from "@/types";
-import { SanityImage } from "../elements/sanity-image";
 import Image from "next/image";
+import Link from "next/link";
 
 type HeroBlockProps = PagebuilderType<"hero">;
 
@@ -37,14 +37,14 @@ export default function HeroBlock({ buttons, image }: HeroBlockProps) {
               key={`${link._key ?? link.text ?? "hero-link"}-${index}`}
               className="flex items-center gap-x-2 whitespace-nowrap"
             >
-              <a
+              <Link
                 href={link.href || "#"}
                 className="text-center font-medium tracking-[0] transition-opacity"
                 target={link.openInNewTab ? "_blank" : undefined}
                 rel={link.openInNewTab ? "noreferrer" : undefined}
               >
                 {link.text}
-              </a>
+              </Link>
               {index < navLinks.length - 1 ? (
                 <span aria-hidden="true" className="text-color-link">
                   |
