@@ -96,7 +96,7 @@ export function ProductShowcase({
   return (
     <section
       className={cn(
-        "max-w-container mx-auto",
+        "relative lg:max-w-container mx-auto",
         sectionToneClasses[backgroundTone] ?? sectionToneClasses.none,
         getSectionSpacingClass(sectionId),
       )}
