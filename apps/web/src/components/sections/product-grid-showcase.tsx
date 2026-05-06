@@ -192,7 +192,7 @@ export function ProductGridShowcase({
     >
       {heading ? (
         <AnimateIn y={16}>
-          <h2 className="pb-[22px] text-center text-[22px] leading-[36px] text-black lg:leading-[48px]">
+          <h2 className="pb-[22px] text-center font-semibold text-[22px] leading-[36px] text-black lg:leading-[48px]">
             {heading}
           </h2>
         </AnimateIn>

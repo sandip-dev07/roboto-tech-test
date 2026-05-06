@@ -52,7 +52,7 @@ function FooterColumnSection({
   return (
     <div>
       <div className="mb-[14px] h-[1px] bg-color-link" />
-      <h4 className="mb-[0px] font-serif text-[14px] leading-[24px] font-medium text-color-primary sm:text-[16px] sm:leading-[31px]">
+      <h4 className="mb-[0px] font-serif text-[14px] leading-[24px] font-medium text-color-primary font-semibold sm:text-[16px] sm:leading-[31px]">
         {title}
       </h4>
       {links.length > 0 ? (

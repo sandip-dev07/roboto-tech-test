@@ -104,7 +104,7 @@ export function ProductShowcase({
       <div className="relative mx-auto max-w-[1243px] px-5 py-[32px] sm:px-6 md:px-9 md:py-[38px] lg:px-0">
         <div className="flex w-full flex-col-reverse items-center gap-8 md:gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
           <AnimateIn
-            className="flex w-full max-w-[509px] flex-col lg:mb-14"
+            className="flex w-full max-w-[500px] flex-col lg:mb-14"
             y={18}
           >
             {eyebrow ? (
@@ -114,7 +114,7 @@ export function ProductShowcase({
             ) : null}
 
             {title ? (
-              <h2 className="mb-[14px] whitespace-pre-line text-center font-serif text-[22px] leading-[30px] text-black sm:text-[26px] sm:leading-[36px] lg:mb-[26px] lg:text-[34px] lg:leading-[48px]">
+              <h2 className="mb-[16px] whitespace-pre-line text-center font-semibold font-serif text-[22px] leading-[30px] text-black sm:text-[26px] sm:leading-[36px] lg:mb-[26px] lg:text-[34px] lg:leading-[48px]">
                 {title}
               </h2>
             ) : null}
