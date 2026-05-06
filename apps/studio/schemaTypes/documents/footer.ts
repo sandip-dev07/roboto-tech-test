@@ -27,7 +27,7 @@ const footerColumnLink = defineField({
     },
     prepare({ title, externalUrl, urlType, internalUrl, openInNewTab }) {
       const url = urlType === "external" ? externalUrl : internalUrl;
-      const newTabIndicator = openInNewTab ? " ↗" : "";
+      const newTabIndicator = openInNewTab ? " →" : "";
       const truncatedUrl =
         url?.length > 30 ? `${url.substring(0, 30)}...` : url;
 
@@ -73,6 +73,31 @@ const footerColumn = defineField({
   },
 });
 
+const footerColumnGroup = defineField({
+  name: "footerColumnGroup",
+  title: "Footer Column Group",
+  type: "object",
+  fields: [
+    defineField({
+      name: "sections",
+      title: "Sections",
+      type: "array",
+      of: [footerColumn],
+    }),
+  ],
+  preview: {
+    select: {
+      sections: "sections",
+    },
+    prepare({ sections = [] }) {
+      return {
+        title: "Footer Column Group",
+        subtitle: `${sections.length} section${sections.length === 1 ? "" : "s"}`,
+      };
+    },
+  },
+});
+
 export const footer = defineType({
   name: "footer",
   type: "document",
@@ -97,9 +122,66 @@ export const footer = defineType({
     defineField({
       name: "columns",
       type: "array",
-      title: "Columns",
-      description: "Columns for the footer",
+      title: "Legacy Columns",
+      description: "Columns for the older footer variant",
       of: [footerColumn],
+    }),
+    defineField({
+      name: "contact",
+      title: "Contact",
+      type: "object",
+      fields: [
+        defineField({
+          name: "phone",
+          title: "Phone",
+          type: "string",
+        }),
+        defineField({
+          name: "addressLines",
+          title: "Address Lines",
+          type: "array",
+          of: [{ type: "string" }],
+        }),
+        defineField({
+          name: "email",
+          title: "Email",
+          type: "string",
+        }),
+      ],
+    }),
+    defineField({
+      name: "newsletter",
+      title: "Newsletter",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Title",
+          type: "string",
+        }),
+        defineField({
+          name: "placeholder",
+          title: "Placeholder",
+          type: "string",
+        }),
+        defineField({
+          name: "ctaLabel",
+          title: "CTA Label",
+          type: "string",
+        }),
+        defineField({
+          name: "privacyLabel",
+          title: "Privacy Label",
+          type: "string",
+        }),
+      ],
+    }),
+    defineField({
+      name: "columnGroups",
+      type: "array",
+      title: "Column Groups",
+      description: "Grouped footer columns for the current footer layout",
+      of: [footerColumnGroup],
     }),
   ],
   preview: {

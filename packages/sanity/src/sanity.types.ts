@@ -274,14 +274,6 @@ export type ProductGridShowcase = {
     subtitle?: string;
     image: ProductGridItemImage;
     url?: CustomUrl;
-    layout?:
-      | "standardLandscape"
-      | "tallPortrait"
-      | "storyPortrait"
-      | "furniturePortrait"
-      | "furnitureLandscape"
-      | "furnitureSquare"
-      | "furnitureWide";
     _type: "productGridItem";
     _key: string;
   }>;
@@ -306,9 +298,7 @@ export type ProductShowcase = {
     alt?: string;
     _type: "image";
   };
-  imageLayout?: "portrait" | "furniture" | "collection" | "journal";
   backgroundTone?: "none" | "sand";
-  spacing?: "default" | "compact" | "large" | "xl";
   richText?: RichText;
 };
 
@@ -516,6 +506,32 @@ export type Footer = {
       _key: string;
     }>;
     _type: "footerColumn";
+    _key: string;
+  }>;
+  contact?: {
+    phone?: string;
+    addressLines?: Array<string>;
+    email?: string;
+  };
+  newsletter?: {
+    title?: string;
+    placeholder?: string;
+    ctaLabel?: string;
+    privacyLabel?: string;
+  };
+  columnGroups?: Array<{
+    sections?: Array<{
+      title?: string;
+      links?: Array<{
+        name?: string;
+        url?: CustomUrl;
+        _type: "footerColumnLink";
+        _key: string;
+      }>;
+      _type: "footerColumn";
+      _key: string;
+    }>;
+    _type: "footerColumnGroup";
     _key: string;
   }>;
 };
@@ -1348,14 +1364,6 @@ export type QueryHomePageDataResult = {
             } | null;
           };
           url?: CustomUrl;
-          layout?:
-            | "furnitureLandscape"
-            | "furniturePortrait"
-            | "furnitureSquare"
-            | "furnitureWide"
-            | "standardLandscape"
-            | "storyPortrait"
-            | "tallPortrait";
           _type: "productGridItem";
           _key: string;
           openInNewTab: boolean | null;
@@ -1392,9 +1400,7 @@ export type QueryHomePageDataResult = {
             top: number;
           } | null;
         } | null;
-        imageLayout?: "collection" | "furniture" | "journal" | "portrait";
         backgroundTone?: "none" | "sand";
-        spacing?: "compact" | "default" | "large" | "xl";
         richText: Array<
           | {
               children?: Array<{
@@ -1887,14 +1893,6 @@ export type QuerySlugPageDataResult = {
             } | null;
           };
           url?: CustomUrl;
-          layout?:
-            | "furnitureLandscape"
-            | "furniturePortrait"
-            | "furnitureSquare"
-            | "furnitureWide"
-            | "standardLandscape"
-            | "storyPortrait"
-            | "tallPortrait";
           _type: "productGridItem";
           _key: string;
           openInNewTab: boolean | null;
@@ -1931,9 +1929,7 @@ export type QuerySlugPageDataResult = {
             top: number;
           } | null;
         } | null;
-        imageLayout?: "collection" | "furniture" | "journal" | "portrait";
         backgroundTone?: "none" | "sand";
-        spacing?: "compact" | "default" | "large" | "xl";
         richText: Array<
           | {
               children?: Array<{
@@ -2426,14 +2422,6 @@ export type QueryBlogIndexPageDataResult = {
             } | null;
           };
           url?: CustomUrl;
-          layout?:
-            | "furnitureLandscape"
-            | "furniturePortrait"
-            | "furnitureSquare"
-            | "furnitureWide"
-            | "standardLandscape"
-            | "storyPortrait"
-            | "tallPortrait";
           _type: "productGridItem";
           _key: string;
           openInNewTab: boolean | null;
@@ -2470,9 +2458,7 @@ export type QueryBlogIndexPageDataResult = {
             top: number;
           } | null;
         } | null;
-        imageLayout?: "collection" | "furniture" | "journal" | "portrait";
         backgroundTone?: "none" | "sand";
-        spacing?: "compact" | "default" | "large" | "xl";
         richText: Array<
           | {
               children?: Array<{
@@ -2956,10 +2942,34 @@ export type QueryGenericPageOGDataResult =
 
 // Source: ../../packages/sanity/src/query.ts
 // Variable: queryFooterData
-// Query: *[_type == "footer" && _id == "footer"][0]{    _id,    subtitle,    columns[]{      _key,      title,      links[]{        _key,        name,        "openInNewTab": url.openInNewTab,        "href": select(          url.type == "internal" => url.internal->slug.current,          url.type == "external" => url.external,          url.href        ),      }    }  }
+// Query: *[_type == "footer" && _id == "footer"][0]{    _id,    subtitle,    contact{      phone,      addressLines[],      email    },    newsletter{      title,      placeholder,      ctaLabel,      privacyLabel    },    columnGroups[]{      _key,      sections[]{        _key,        title,        links[]{          _key,          name,          "openInNewTab": url.openInNewTab,          "href": select(            url.type == "internal" => url.internal->slug.current,            url.type == "external" => url.external,            url.href          ),        }      }    },    columns[]{      _key,      title,      links[]{        _key,        name,        "openInNewTab": url.openInNewTab,        "href": select(          url.type == "internal" => url.internal->slug.current,          url.type == "external" => url.external,          url.href        ),      }    }  }
 export type QueryFooterDataResult = {
   _id: "footer";
   subtitle: string | null;
+  contact: {
+    phone: string | null;
+    addressLines: Array<string> | null;
+    email: string | null;
+  } | null;
+  newsletter: {
+    title: string | null;
+    placeholder: string | null;
+    ctaLabel: string | null;
+    privacyLabel: string | null;
+  } | null;
+  columnGroups: Array<{
+    _key: string;
+    sections: Array<{
+      _key: string;
+      title: string | null;
+      links: Array<{
+        _key: string;
+        name: string | null;
+        openInNewTab: boolean | null;
+        href: string | null;
+      }> | null;
+    }> | null;
+  }> | null;
   columns: Array<{
     _key: string;
     title: string | null;
@@ -3102,7 +3112,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "page" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QuerySlugPageOGDataResult;
     '\n  *[_type == "blog" && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QueryBlogPageOGDataResult;
     '\n  *[ defined(slug.current) && _id == $id][0]{\n    \n  _id,\n  _type,\n  "title": select(\n    defined(ogTitle) => ogTitle,\n    defined(seoTitle) => seoTitle,\n    title\n  ),\n  "description": select(\n    defined(ogDescription) => ogDescription,\n    defined(seoDescription) => seoDescription,\n    description\n  ),\n  "image": image.asset->url + "?w=566&h=566&dpr=2&fit=max",\n  "dominantColor": image.asset->metadata.palette.dominant.background,\n  "seoImage": seoImage.asset->url + "?w=1200&h=630&dpr=2&fit=max", \n  "logo": *[_type == "settings"][0].logo.asset->url + "?w=80&h=40&dpr=3&fit=max&q=100",\n  "date": coalesce(date, _createdAt)\n\n  }\n': QueryGenericPageOGDataResult;
-    '\n  *[_type == "footer" && _id == "footer"][0]{\n    _id,\n    subtitle,\n    columns[]{\n      _key,\n      title,\n      links[]{\n        _key,\n        name,\n        "openInNewTab": url.openInNewTab,\n        "href": select(\n          url.type == "internal" => url.internal->slug.current,\n          url.type == "external" => url.external,\n          url.href\n        ),\n      }\n    }\n  }\n': QueryFooterDataResult;
+    '\n  *[_type == "footer" && _id == "footer"][0]{\n    _id,\n    subtitle,\n    contact{\n      phone,\n      addressLines[],\n      email\n    },\n    newsletter{\n      title,\n      placeholder,\n      ctaLabel,\n      privacyLabel\n    },\n    columnGroups[]{\n      _key,\n      sections[]{\n        _key,\n        title,\n        links[]{\n          _key,\n          name,\n          "openInNewTab": url.openInNewTab,\n          "href": select(\n            url.type == "internal" => url.internal->slug.current,\n            url.type == "external" => url.external,\n            url.href\n          ),\n        }\n      }\n    },\n    columns[]{\n      _key,\n      title,\n      links[]{\n        _key,\n        name,\n        "openInNewTab": url.openInNewTab,\n        "href": select(\n          url.type == "internal" => url.internal->slug.current,\n          url.type == "external" => url.external,\n          url.href\n        ),\n      }\n    }\n  }\n': QueryFooterDataResult;
     '\n  *[_type == "navbar" && _id == "navbar"][0]{\n    _id,\n    columns[]{\n      _key,\n      _type == "navbarColumn" => {\n        "type": "column",\n        title,\n        links[]{\n          _key,\n          name,\n          icon,\n          description,\n          "openInNewTab": url.openInNewTab,\n          "href": select(\n            url.type == "internal" => url.internal->slug.current,\n            url.type == "external" => url.external,\n            url.href\n          )\n        }\n      },\n      _type == "navbarLink" => {\n        "type": "link",\n        name,\n        description,\n        "openInNewTab": url.openInNewTab,\n        "href": select(\n          url.type == "internal" => url.internal->slug.current,\n          url.type == "external" => url.external,\n          url.href\n        )\n      }\n    },\n    \n  buttons[]{\n    text,\n    variant,\n    _key,\n    _type,\n    "openInNewTab": url.openInNewTab,\n    "href": select(\n      url.type == "internal" => url.internal->slug.current,\n      url.type == "external" => url.external,\n      url.href\n    ),\n  }\n,\n  }\n': QueryNavbarDataResult;
     '{\n  "slugPages": *[_type == "page" && defined(slug.current)]{\n    "slug": slug.current,\n    "lastModified": _updatedAt\n  },\n  "blogPages": *[_type == "blog" && defined(slug.current)]{\n    "slug": slug.current,\n    "lastModified": _updatedAt\n  }\n}': QuerySitemapDataResult;
     '\n  *[_type == "settings"][0]{\n    _id,\n    _type,\n    siteTitle,\n    logo {\n      \n  "id": asset._ref,\n  "preview": asset->metadata.lqip,\n  "alt": coalesce(\n    alt,\n    asset->altText,\n    caption,\n    asset->originalFilename,\n    "untitled"\n  ),\n  hotspot {\n    x,\n    y\n  },\n  crop {\n    bottom,\n    left,\n    right,\n    top\n  }\n\n    },\n    siteDescription,\n    socialLinks{\n      linkedin,\n      facebook,\n      twitter,\n      instagram,\n      youtube\n    }\n  }\n': QueryGlobalSeoSettingsResult;

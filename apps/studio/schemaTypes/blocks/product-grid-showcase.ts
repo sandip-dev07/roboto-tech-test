@@ -29,34 +29,16 @@ const productGridItem = defineField({
       title: "Link URL",
       type: "customUrl",
     }),
-    defineField({
-      name: "layout",
-      title: "Card Layout",
-      type: "string",
-      initialValue: "standardLandscape",
-      options: {
-        list: [
-          { title: "Standard Landscape", value: "standardLandscape" },
-          { title: "Tall Portrait", value: "tallPortrait" },
-          { title: "Story Portrait", value: "storyPortrait" },
-          { title: "Furniture Portrait", value: "furniturePortrait" },
-          { title: "Furniture Landscape", value: "furnitureLandscape" },
-          { title: "Furniture Square", value: "furnitureSquare" },
-          { title: "Furniture Wide", value: "furnitureWide" },
-        ],
-      },
-    }),
   ],
   preview: {
     select: {
       title: "title",
       subtitle: "subtitle",
       media: "image",
-      layout: "layout",
     },
-    prepare: ({ title, subtitle, media, layout }) => ({
+    prepare: ({ title, subtitle, media }) => ({
       title: title || "Grid Item",
-      subtitle: [subtitle, layout].filter(Boolean).join(" • "),
+      subtitle: subtitle || "Product Grid Item",
       media,
     }),
   },

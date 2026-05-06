@@ -1,0 +1,20 @@
+{
+  "_id": "settings",
+  "_type": "settings",
+  "label": "Settings",
+  "siteTitle": "Template Robot Next Sanity",
+  "siteDescription": "Powered by Next.js and Sanity, crafted in a seamless monorepo architecture.",
+  "contactEmail": "hello@robotostudio.com",
+  "socialLinks": {
+    "linkedin": "https://uk.linkedin.com/company/robotostudio",
+    "twitter": "https://x.com/studioroboto",
+    "youtube": "https://www.youtube.com/@robotostudio"
+  },
+  "logo": {
+    "_type": "image",
+    "asset": {
+      "_type": "reference",
+      "_ref": "image-cc6704d7c1b5feff1fd92080041410542cc7cc33-108x45-svg"
+    }
+  }
+}

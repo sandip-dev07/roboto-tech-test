@@ -46,21 +46,6 @@ export const productShowcase = defineType({
       description: "Main image shown beside the copy",
     }),
     defineField({
-      name: "imageLayout",
-      title: "Image Layout",
-      type: "string",
-      initialValue: "portrait",
-      options: {
-        list: [
-          { title: "Portrait Large", value: "portrait" },
-          { title: "Furniture", value: "furniture" },
-          { title: "Collection", value: "collection" },
-          { title: "Journal", value: "journal" },
-        ],
-        layout: "radio",
-      },
-    }),
-    defineField({
       name: "backgroundTone",
       title: "Background Tone",
       type: "string",
@@ -73,32 +58,16 @@ export const productShowcase = defineType({
         layout: "radio",
       },
     }),
-    defineField({
-      name: "spacing",
-      title: "Vertical Spacing",
-      type: "string",
-      initialValue: "default",
-      options: {
-        list: [
-          { title: "Default", value: "default" },
-          { title: "Compact", value: "compact" },
-          { title: "Large", value: "large" },
-          { title: "XL", value: "xl" },
-        ],
-        layout: "radio",
-      },
-    }),
     richTextField,
   ],
   preview: {
     select: {
       title: "title",
       media: "image",
-      imageLayout: "imageLayout",
     },
-    prepare: ({ title, media, imageLayout }) => ({
+    prepare: ({ title, media }) => ({
       title: title || "Product Showcase",
-      subtitle: `Product Showcase${imageLayout ? ` • ${imageLayout}` : ""}`,
+      subtitle: "Product Showcase",
       media,
     }),
   },

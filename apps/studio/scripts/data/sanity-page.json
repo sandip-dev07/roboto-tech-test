@@ -122,9 +122,7 @@
         },
         "alt": "Fireplace detail"
       },
-      "imageLayout": "portrait",
-      "backgroundTone": "none",
-      "spacing": "default"
+      "backgroundTone": "none"
     },
     {
       "_type": "productShowcase",
@@ -154,9 +152,7 @@
         },
         "alt": "Lighting detail"
       },
-      "imageLayout": "portrait",
-      "backgroundTone": "none",
-      "spacing": "compact"
+      "backgroundTone": "none"
     },
     {
       "_type": "productGridShowcase",
@@ -170,7 +166,6 @@
           "_key": "chimneypiece-1",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "standardLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -190,7 +185,6 @@
           "_key": "chimneypiece-2",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "standardLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -210,7 +204,6 @@
           "_key": "chimneypiece-3",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "standardLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -230,7 +223,6 @@
           "_key": "chimneypiece-4",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "standardLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -259,7 +251,6 @@
           "_key": "lighting-1",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "tallPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -279,7 +270,6 @@
           "_key": "lighting-2",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "tallPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -299,7 +289,6 @@
           "_key": "lighting-3",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "tallPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -319,7 +308,6 @@
           "_key": "lighting-4",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "tallPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -339,7 +327,6 @@
           "_key": "lighting-5",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "tallPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -384,9 +371,7 @@
         },
         "alt": "Furniture detail"
       },
-      "imageLayout": "furniture",
-      "backgroundTone": "none",
-      "spacing": "default"
+      "backgroundTone": "none"
     },
     {
       "_type": "productGridShowcase",
@@ -400,7 +385,6 @@
           "_key": "furniture-1",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "furniturePortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -420,7 +404,6 @@
           "_key": "furniture-2",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "furnitureLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -440,7 +423,6 @@
           "_key": "furniture-3",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "furnitureLandscape",
           "image": {
             "_type": "image",
             "asset": {
@@ -460,7 +442,6 @@
           "_key": "furniture-4",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "furnitureSquare",
           "image": {
             "_type": "image",
             "asset": {
@@ -480,7 +461,6 @@
           "_key": "furniture-5",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "furnitureWide",
           "image": {
             "_type": "image",
             "asset": {
@@ -526,9 +506,7 @@
         },
         "alt": "The Grand Collection"
       },
-      "imageLayout": "collection",
-      "backgroundTone": "sand",
-      "spacing": "default"
+      "backgroundTone": "sand"
     },
     {
       "_type": "productGridShowcase",
@@ -542,7 +520,6 @@
           "_key": "story-1",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "storyPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -562,7 +539,6 @@
           "_key": "story-2",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "storyPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -582,7 +558,6 @@
           "_key": "story-3",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "storyPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -602,7 +577,6 @@
           "_key": "story-4",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "storyPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -622,7 +596,6 @@
           "_key": "story-5",
           "title": "Lorem Ipsum",
           "subtitle": "Subtitle",
-          "layout": "storyPortrait",
           "image": {
             "_type": "image",
             "asset": {
@@ -667,9 +640,7 @@
         },
         "alt": "Jamb Journal"
       },
-      "imageLayout": "journal",
-      "backgroundTone": "none",
-      "spacing": "xl"
+      "backgroundTone": "none"
     }
   ]
 }

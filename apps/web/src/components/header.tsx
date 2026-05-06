@@ -1,19 +1,34 @@
-import Image from "next/image";
+import { sanityFetch } from "@workspace/sanity/live";
+import { queryGlobalSeoSettings } from "@workspace/sanity/query";
+import { NavbarScreenWidth } from "./navbar-screen-width";
+import { Logo } from "./logo";
 
-const LOGO_URL =
-  "https://cdn.sanity.io/images/bvh24m7h/production/cc6704d7c1b5feff1fd92080041410542cc7cc33-108x45.svg";
+export default async function Header() {
+  const { data: settingsData } = await sanityFetch({
+    query: queryGlobalSeoSettings,
+  });
 
-export default function Header() {
+  const logo = settingsData?.logo;
+  const siteTitle = settingsData?.siteTitle;
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-[80px] w-full items-center bg-background md:h-[92px] lg:h-[110px] border-b">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <NavbarScreenWidth />
+      </div>
       <nav className="max-w-container mx-auto flex w-full items-center justify-between gap-4">
         <div className="relative shrink-0 h-[32px] w-[77px] lg:h-[45px] lg:w-[108px]">
-          <Image
-            src={LOGO_URL}
-            alt="Jamb"
-            fill
-            className="object-contain"
-          />
+          {logo ? (
+            <Logo
+              alt={siteTitle || "Logo"}
+              className="block h-full w-full"
+              height={45}
+              image={logo}
+              imageClassName="h-full w-full rounded-none object-contain"
+              priority
+              width={108}
+            />
+          ) : null}
         </div>
 
         <div className="flex shrink-0 items-center gap-[8px] sm:gap-[10px] md:gap-[14px] lg:gap-[26px]">

@@ -4,14 +4,12 @@ import { SanityLive } from "@workspace/sanity/live";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { preconnect, prefetchDNS } from "react-dom";
-
 import { CombinedJsonLd } from "@/components/json-ld";
 import { PreviewBar } from "@/components/preview-bar";
 import { Providers } from "@/components/providers";
-// import Footer from "@/components/footer-2";
 import Header from "@/components/header";
-import { FooterServer } from "@/components/footer";
 import Footer from "@/components/footer-2";
+import { getNavigationData } from "@/lib/navigation";
 
 export default async function RootLayout({
   children,
@@ -20,13 +18,13 @@ export default async function RootLayout({
 }>) {
   preconnect("https://cdn.sanity.io");
   prefetchDNS("https://cdn.sanity.io");
+  const nav = await getNavigationData();
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <Providers>
           <Header />
           {children}
-          <FooterServer />
           <Footer />
           <SanityLive />
           <CombinedJsonLd includeOrganization includeWebsite />

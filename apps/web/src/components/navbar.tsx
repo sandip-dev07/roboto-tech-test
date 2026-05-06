@@ -7,7 +7,7 @@ import useSWR from "swr";
 import type { NavigationData } from "@/types";
 import { Logo } from "./logo";
 import { MobileMenu } from "./mobile-menu";
-import { NavbarScreenWidth } from "./navbar-screen-width";//test
+import { NavbarScreenWidth } from "./navbar-screen-width"; //test
 
 const ICON_STROKE = "#9C9C9D";
 
@@ -162,7 +162,7 @@ export function Navbar({
       refreshInterval: 30_000,
       errorRetryCount: 3,
       errorRetryInterval: 5000,
-    }
+    },
   );
 
   const navigationData = data || {

@@ -356,6 +356,34 @@ export const queryFooterData = defineQuery(`
   *[_type == "footer" && _id == "footer"][0]{
     _id,
     subtitle,
+    contact{
+      phone,
+      addressLines[],
+      email
+    },
+    newsletter{
+      title,
+      placeholder,
+      ctaLabel,
+      privacyLabel
+    },
+    columnGroups[]{
+      _key,
+      sections[]{
+        _key,
+        title,
+        links[]{
+          _key,
+          name,
+          "openInNewTab": url.openInNewTab,
+          "href": select(
+            url.type == "internal" => url.internal->slug.current,
+            url.type == "external" => url.external,
+            url.href
+          ),
+        }
+      }
+    },
     columns[]{
       _key,
       title,

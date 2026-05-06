@@ -1,0 +1,143 @@
+{
+  "_id": "footer",
+  "_type": "footer",
+  "label": "Footer",
+  "subtitle": "Powered by Next.js and Sanity, crafted in a seamless monorepo architecture.",
+  "contact": {
+    "phone": "+44 (0) 207 730 2122",
+    "addressLines": ["95-97 Pimlico Rd", "London SW1W 8PH"],
+    "email": "hello@jamb.co.uk"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "placeholder": "Search",
+    "ctaLabel": "Subscribe",
+    "privacyLabel": "I agree to our Privacy Policy"
+  },
+  "columnGroups": [
+    {
+      "_type": "footerColumnGroup",
+      "_key": "group-1",
+      "sections": [
+        {
+          "_type": "footerColumn",
+          "_key": "section-repro-chimneypieces",
+          "title": "Reproduction Chimneypieces",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "marble", "name": "Marble", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "stone", "name": "Stone", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "grates", "name": "Grates & Accessories", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "guide-marbles", "name": "Guide to Jamb Marbles", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        },
+        {
+          "_type": "footerColumn",
+          "_key": "section-antique-chimneypieces",
+          "title": "Antique Chimneypieces",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "french-italian", "name": "French & Italian", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "georgian", "name": "Georgian", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "regency", "name": "Regency", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        },
+        {
+          "_type": "footerColumn",
+          "_key": "section-sell-chimneypiece",
+          "title": "Sell an Antique Chimneypiece",
+          "links": []
+        }
+      ]
+    },
+    {
+      "_type": "footerColumnGroup",
+      "_key": "group-2",
+      "sections": [
+        {
+          "_type": "footerColumn",
+          "_key": "section-repro-lighting",
+          "title": "Reproduction Lighting",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "hanging-globes", "name": "Hanging Globes", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "hanging-lanterns", "name": "Hanging Lanterns", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "wall-lights", "name": "Wall Lights", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "dish-lights", "name": "Dish Lights", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "table-lamps", "name": "Table Lamps", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "chains-brackets", "name": "Chains & Brackets", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "footerColumnGroup",
+      "_key": "group-3",
+      "sections": [
+        {
+          "_type": "footerColumn",
+          "_key": "section-repro-furniture",
+          "title": "Reproduction Furniture",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "seating", "name": "Seating", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "tables", "name": "Tables", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "mirrors", "name": "Mirrors", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "pantry", "name": "The Pantry Collection", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        },
+        {
+          "_type": "footerColumn",
+          "_key": "section-antique-furniture",
+          "title": "Antique Furniture",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "antique-seating", "name": "Seating", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "antique-tables", "name": "Tables", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "desks", "name": "Desks", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "bookcases-cabinets", "name": "Bookcases & Cabinets", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "chests", "name": "Chests", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "antique-mirrors", "name": "Mirrors", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "fire-accessories", "name": "Fire Accessories", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "objects", "name": "Objects", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "works-of-art", "name": "Works of Arts", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "antique-lighting", "name": "Lighting", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "footerColumnGroup",
+      "_key": "group-4",
+      "sections": [
+        {
+          "_type": "footerColumn",
+          "_key": "section-journal",
+          "title": "Journal",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "praesentium", "name": "Praesentium", "url": { "_type": "customUrl", "type": "external", "external": "/blog" } },
+            { "_type": "footerColumnLink", "_key": "voluptatibus", "name": "Voluptatibus", "url": { "_type": "customUrl", "type": "external", "external": "/blog" } },
+            { "_type": "footerColumnLink", "_key": "accusamus", "name": "Accusamus", "url": { "_type": "customUrl", "type": "external", "external": "/blog" } },
+            { "_type": "footerColumnLink", "_key": "iusto", "name": "Iusto", "url": { "_type": "customUrl", "type": "external", "external": "/blog" } },
+            { "_type": "footerColumnLink", "_key": "dignissimos", "name": "Dignissimos", "url": { "_type": "customUrl", "type": "external", "external": "/blog" } }
+          ]
+        }
+      ]
+    },
+    {
+      "_type": "footerColumnGroup",
+      "_key": "group-5",
+      "sections": [
+        {
+          "_type": "footerColumn",
+          "_key": "section-about",
+          "title": "About",
+          "links": [
+            { "_type": "footerColumnLink", "_key": "founders", "name": "Founders", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "team", "name": "Team", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "history", "name": "History", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "galleries", "name": "Galleries", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "workshops", "name": "Workshops", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "showrooms", "name": "Showrooms", "url": { "_type": "customUrl", "type": "external", "external": "/" } },
+            { "_type": "footerColumnLink", "_key": "terms-conditions", "name": "Terms & Conditions", "url": { "_type": "customUrl", "type": "external", "external": "/" } }
+          ]
+        }
+      ]
+    }
+  ]
+}
