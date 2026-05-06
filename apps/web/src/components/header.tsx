@@ -12,7 +12,7 @@ export default async function Header() {
   const siteTitle = settingsData?.siteTitle;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-[80px] w-full items-center bg-background md:h-[92px] lg:h-[110px] border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-[80px] w-full items-center bg-background md:h-[92px] lg:h-[110px]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <NavbarScreenWidth />
       </div>

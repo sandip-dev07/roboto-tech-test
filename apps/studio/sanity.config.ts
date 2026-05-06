@@ -25,7 +25,7 @@ export default defineConfig({
   projectId,
   dataset,
   releases: {
-    enabled: true,
+    enabled: false,
   },
   plugins: [
     presentationTool({

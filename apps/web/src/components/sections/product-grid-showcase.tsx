@@ -1,6 +1,5 @@
 import { cn } from "@workspace/ui/lib/utils";
 import Link from "next/link";
-
 import type { PagebuilderType } from "@/types";
 import AnimateIn from "../animate-in";
 import { SanityImage } from "../elements/sanity-image";
@@ -107,7 +106,7 @@ function ProductGridCard({
   index = 0,
 }: ProductGridItem & LayoutConfig & { index?: number }) {
   const content = (
-    <div className="flex h-full w-full flex-col items-center">
+    <div className="flex h-full w-full flex-col items-center pb-1">
       <div
         className={cn(
           "flex w-full items-center justify-center lg:min-h-[253px]",
@@ -130,7 +129,7 @@ function ProductGridCard({
           ) : null}
         </div>
       </div>
-      <div className="pt-2 text-center lg:pt-3">
+      <div className="pt-1 text-center lg:pt-1.5">
         <h3 className="text-base font-bold leading-[30px] text-color-secondary">
           {title}
         </h3>
@@ -193,7 +192,7 @@ export function ProductGridShowcase({
     >
       {heading ? (
         <AnimateIn y={16}>
-          <h2 className="pb-[24px] text-center text-[22px] leading-[36px] text-black lg:leading-[48px]">
+          <h2 className="pb-[22px] text-center text-[22px] leading-[36px] text-black lg:leading-[48px]">
             {heading}
           </h2>
         </AnimateIn>

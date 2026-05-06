@@ -29,7 +29,7 @@ export default function HeroBlock({ buttons, image }: HeroBlockProps) {
       <AnimateIn
         delay={0.08}
         y={12}
-        className="px-4 py-[18px] text-center sm:px-6 lg:px-0 lg:py-[32px]"
+        className="px-4 py-[18px] text-center sm:px-6 lg:px-0 lg:py-[31px]"
       >
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-[14px] leading-[22px] text-color-link sm:text-[15px] sm:leading-[24px] lg:text-[16px] lg:leading-[25px]">
           {navLinks.map((link, index) => (
