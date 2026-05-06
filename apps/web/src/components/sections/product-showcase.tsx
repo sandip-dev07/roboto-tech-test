@@ -44,13 +44,13 @@ const imageLayoutClasses: Partial<Record<ProductShowcaseSectionId, string>> = {
 
 function getSectionSpacingClass(sectionId?: ProductShowcaseProps["sectionId"]) {
   return sectionId
-    ? sectionSpacingClasses[sectionId] ?? DEFAULT_SECTION_SPACING_CLASS
+    ? (sectionSpacingClasses[sectionId] ?? DEFAULT_SECTION_SPACING_CLASS)
     : DEFAULT_SECTION_SPACING_CLASS;
 }
 
 function getImageLayoutClass(sectionId?: ProductShowcaseProps["sectionId"]) {
   return sectionId
-    ? imageLayoutClasses[sectionId] ?? DEFAULT_IMAGE_LAYOUT_CLASS
+    ? (imageLayoutClasses[sectionId] ?? DEFAULT_IMAGE_LAYOUT_CLASS)
     : DEFAULT_IMAGE_LAYOUT_CLASS;
 }
 
@@ -96,6 +96,7 @@ export function ProductShowcase({
   return (
     <section
       className={cn(
+        "max-w-container mx-auto",
         sectionToneClasses[backgroundTone] ?? sectionToneClasses.none,
         getSectionSpacingClass(sectionId),
       )}
@@ -143,7 +144,10 @@ export function ProductShowcase({
           {image?.id ? (
             <AnimateIn className="w-full lg:w-auto" delay={0.06} y={24}>
               <div className={getImageLayoutClass(sectionId)}>
-                <SanityImage className="h-full w-fit object-cover" image={image} />
+                <SanityImage
+                  className="h-full w-fit object-cover"
+                  image={image}
+                />
               </div>
             </AnimateIn>
           ) : null}
