@@ -8,8 +8,13 @@ type HeroBlockProps = PagebuilderType<"hero">;
 const IMAGE_URL =
   "https://cdn.sanity.io/images/bvh24m7h/production/e31ab67898a01f48612afd44287f8d6e7ae7cf7d-2210x1256.png";
 
-export default function HeroBlock({ buttons, image }: HeroBlockProps) {
+export default function HeroBlock({
+  buttons,
+  image,
+  imageUrl,
+}: HeroBlockProps) {
   const navLinks = buttons ?? [];
+  const heroImageUrl = imageUrl || IMAGE_URL;
 
   return (
     <section className="max-w-container">
@@ -17,10 +22,11 @@ export default function HeroBlock({ buttons, image }: HeroBlockProps) {
       <AnimateIn y={20}>
         <div className="relative aspect-square w-full rounded-none lg:h-[768px] lg:aspect-auto">
           <Image
-            src={IMAGE_URL}
+            src={heroImageUrl}
             alt={image?.alt || ""}
             fill
             className="overflow-hidden rounded-none object-cover"
+            loading="eager"
           />
         </div>
       </AnimateIn>

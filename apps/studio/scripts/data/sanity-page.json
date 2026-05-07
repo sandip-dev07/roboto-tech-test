@@ -23,6 +23,7 @@
     {
       "_type": "hero",
       "_key": "hero-sanity",
+      "imageUrl": "https://cdn.sanity.io/images/bvh24m7h/production/e31ab67898a01f48612afd44287f8d6e7ae7cf7d-2210x1256.png",
       "image": {
         "_type": "image",
         "asset": {

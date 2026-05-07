@@ -25,6 +25,13 @@ export const hero = defineType({
         "The main heading text for the hero section that captures attention",
     }),
     customRichText(["block"]),
+    defineField({
+      name: "imageUrl",
+      type: "url",
+      title: "External Image URL",
+      description:
+        "Optional direct image URL. If provided, the frontend will use this instead of the uploaded Sanity image asset.",
+    }),
     imageWithAltField(),
     buttonsField,
   ],

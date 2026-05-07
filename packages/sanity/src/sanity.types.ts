@@ -324,6 +324,7 @@ export type Hero = {
     _type: "block";
     _key: string;
   }>;
+  imageUrl?: string;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -1250,6 +1251,7 @@ export type QueryHomePageDataResult = {
           _type: "block";
           _key: string;
         }> | null;
+        imageUrl?: string;
         image: {
           id: string | null;
           preview: string | null;
@@ -1779,6 +1781,7 @@ export type QuerySlugPageDataResult = {
           _type: "block";
           _key: string;
         }> | null;
+        imageUrl?: string;
         image: {
           id: string | null;
           preview: string | null;
@@ -2308,6 +2311,7 @@ export type QueryBlogIndexPageDataResult = {
           _type: "block";
           _key: string;
         }> | null;
+        imageUrl?: string;
         image: {
           id: string | null;
           preview: string | null;
